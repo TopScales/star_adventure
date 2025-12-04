@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/godot/modules/**",
+                "${workspaceFolder}/godot/godot_source/**",
+                "${workspaceFolder}/godot/godot_source/platform/windows"
+            ],
+            "defines": [
+                "TOOLS_ENABLED",
+                "DEBUG_ENABLED",
+                "DEV_ENABLED"
+            ],
+            "compilerPath": "cl.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-msvc-x64"
+        }
+    ],
+    "version": 4
+}

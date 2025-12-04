@@ -1,0 +1,44 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="My Project"
+config/version="0.1.1"
+config/features=PackedStringArray("4.5", "Forward Plus")
+config/icon="res://assets/icons/system/icon.svg"
+
+[autoload]
+
+Log="*res://addons/logerr/autoload/logger.gd"
+Err="*res://addons/logerr/autoload/err.gd"
+Benchmark="*res://addons/logerr/autoload/benchmark.gd"
+Game="*res://scenes/game/game.tscn"
+
+[debug]
+
+gdscript/warnings/return_value_discarded=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gut/plugin.cfg", "res://addons/logerr/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "yellow",
+"res://data/": "green",
+"res://docs/": "blue",
+"res://scenes/": "orange",
+"res://scripts/": "purple",
+"res://tests/": "pink",
+"res://tools/": "teal"
+}
