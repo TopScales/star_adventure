@@ -1,10 +1,4 @@
-# [Your Game Title]
-
->📝 **NOTE:** This is a template project from the [Godot Starter](https://github.com/TopScales/godot_starter) repository. For more information on how to begin working with this template, refer to the corresponding [documentation](docs/starter/godot_starter).
-
->📝 **NOTE:** Keep only the information that is relevant to your project. Remove all unnecessary documentation and notes (including this one).
-
->📝 NOTE: Replace the links below with badges relevant to your project. You can safely remove the links if you prefer not to use badges.
+# Star Adventure
 
 <p align="center"> <!-- Example badges --> <img src="https://img.shields.io/badge/Godot-4.x-blue" /> <img src="https://img.shields.io/github/license/[user]/[repo]" /> <img src="https://img.shields.io/github/actions/workflow/status/[user]/[repo]/build.yml?label=Build" /> </p>
 
