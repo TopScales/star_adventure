@@ -51,9 +51,8 @@ static func inc_fix(input_fix: String) -> String:
 
 
 static func as_array_from_string(string: String) -> PackedInt32Array:
-	var res := PackedInt32Array()
-	#Err.check_resize(res.resize(4))
-	res.resize(4)
+	var res: PackedInt32Array = PackedInt32Array()
+	Err.try_resize(res.resize(4))
 	var parts := string.split(".", false)
 	assert(parts.size() == 3, "Malformed version string.")
 	res[0] = parts[0].to_int()
@@ -79,9 +78,8 @@ func get_as_string(include_status: bool, include_nickname := false) -> String:
 
 
 func get_as_bytes() -> PackedByteArray:
-	var bytes := PackedByteArray()
-	#Err.check_resize(bytes.resize(4))
-	bytes.resize(4)
+	var bytes: PackedByteArray = PackedByteArray()
+	Err.try_resize(bytes.resize(4))
 	bytes.encode_u8(0, major)
 	bytes.encode_u8(1, minor)
 	bytes.encode_u8(2, patch)
@@ -94,7 +92,7 @@ func set_from_bytes(bytes: PackedByteArray) -> void:
 	major = bytes.decode_u8(0)
 	minor = bytes.decode_u8(1)
 	patch = bytes.decode_u8(2)
-	var fix_byte := PackedByteArray([bytes.decode_u8(3)])
+	var fix_byte: PackedByteArray = PackedByteArray([bytes.decode_u8(3)])
 	fix = fix_byte.get_string_from_ascii()
 
 

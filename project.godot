@@ -10,8 +10,9 @@ config_version=5
 
 [application]
 
-config/name="My Project"
+config/name="Star Adventure"
 config/version="0.1.1"
+run/main_scene="uid://cckt7jhjc3pfw"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://assets/icons/system/icon.svg"
 
@@ -42,3 +43,12 @@ folder_colors={
 "res://tests/": "pink",
 "res://tools/": "teal"
 }
+
+[gui]
+
+theme/custom="uid://bayycrfgj4lmr"
+theme/custom_font="uid://clgckxt3jsfl8"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.014266662, 0.011999998, 0.08, 1)

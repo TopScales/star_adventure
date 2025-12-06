@@ -18,7 +18,7 @@
             },
             "problemMatcher": "$msCompile",
             "options": {
-                "cwd": "${workspaceFolder}/godot/godot_source",
+                "cwd": "${workspaceFolder}/godot/source",
                 "env": {
                     "EC_MODULES": "${workspaceFolder}/godot/modules"
                 }
@@ -41,7 +41,7 @@
             },
             "problemMatcher": "$msCompile",
             "options": {
-                "cwd": "${workspaceFolder}/godot/godot_source",
+                "cwd": "${workspaceFolder}/godot/source",
                 "env": {
                     "EC_MODULES": "${workspaceFolder}/godot/modules"
                 }

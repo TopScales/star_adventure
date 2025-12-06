@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://3mjg24gbwh3m"]
+
+[ext_resource type="Script" uid="uid://kv37joqxoec7" path="res://scenes/gui/new_game.gd" id="1_gpfds"]
+
+[node name="NewGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gpfds")
+
+[node name="Back" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -49.0
+offset_right = 110.0
+offset_bottom = -9.0
+grow_vertical = 0
+text = "Back"
+
+[node name="Start" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -114.0
+offset_top = -50.0
+offset_right = -14.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Start"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

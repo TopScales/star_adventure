@@ -1,3 +1,6 @@
 [submodule "addons/logerr"]
 	path = addons/logerr
 	url = git@github.com:TopScales/logerr.git
+[submodule "godot/source"]
+	path = godot/source
+	url = git@github.com:TopScales/godot.git

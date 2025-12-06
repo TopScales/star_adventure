@@ -1,6 +1,6 @@
 # Star Adventure
 
-<p align="center"> <!-- Example badges --> <img src="https://img.shields.io/badge/Godot-4.x-blue" /> <img src="https://img.shields.io/github/license/[user]/[repo]" /> <img src="https://img.shields.io/github/actions/workflow/status/[user]/[repo]/build.yml?label=Build" /> </p>
+<p align="center"> <!-- Example badges --> <img src="https://img.shields.io/badge/Godot-4.5-blue" /> <img src="https://img.shields.io/github/license/TopScales/star_adventure" /> <img src="https://img.shields.io/github/actions/workflow/status/[user]/[repo]/build.yml?label=Build" /> </p>
 
 A brief description of your game. Write a short paragraph summarizing the core concept and what makes your game unique. Avoid using bullet points here.
 

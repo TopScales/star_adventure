@@ -4,8 +4,8 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/godot/modules/**",
-                "${workspaceFolder}/godot/godot_source/**",
-                "${workspaceFolder}/godot/godot_source/platform/windows"
+                "${workspaceFolder}/godot/source/**",
+                "${workspaceFolder}/godot/source/platform/windows"
             ],
             "defines": [
                 "TOOLS_ENABLED",

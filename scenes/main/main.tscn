@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=3 uid="uid://cckt7jhjc3pfw"]
+
+[ext_resource type="Texture2D" uid="uid://bl7m75lus72j3" path="res://assets/logo/logo.png" id="1_hyk8p"]
+[ext_resource type="Script" uid="uid://bkewurbq3r7kj" path="res://scenes/main/main.gd" id="1_iuonh"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iuonh")
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -261.0
+offset_top = -264.0
+offset_right = 261.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hyk8p")
+
+[node name="ButtonsBox" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -377.0
+offset_right = 364.0
+offset_bottom = -57.0
+grow_vertical = 0
+theme_override_constants/separation = 12
+
+[node name="Continue" type="Button" parent="ButtonsBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"AltButton"
+disabled = true
+text = "Continue"
+
+[node name="NewGame" type="Button" parent="ButtonsBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "New Game"
+
+[node name="Load" type="Button" parent="ButtonsBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Load"
+
+[node name="Options" type="Button" parent="ButtonsBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Options"
+
+[node name="Credits" type="Button" parent="ButtonsBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Credits"
+
+[node name="Margin" type="Control" parent="ButtonsBox"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="ButtonsBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quit"
+
+[connection signal="pressed" from="ButtonsBox/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="ButtonsBox/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="ButtonsBox/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="ButtonsBox/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="ButtonsBox/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="ButtonsBox/Quit" to="." method="_on_quit_pressed"]
