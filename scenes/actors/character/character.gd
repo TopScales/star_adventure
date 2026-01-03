@@ -34,13 +34,14 @@ var _properties: Dictionary[StringName, Node] = {}
 # =============================================================
 # ========= Public Functions ==================================
 
+
 func go_to(point: Vector3) -> void:
 	movement.go_to(point)
 
 
 #func set_navigation_grid(nav_grid: NavigationGrid) -> void:
-	#var nav_agent: NavigationGridAgent = get_node(NAV_AGENT_PATH)
-	#nav_agent.set_navigation_grid(nav_grid)
+#var nav_agent: NavigationGridAgent = get_node(NAV_AGENT_PATH)
+#nav_agent.set_navigation_grid(nav_grid)
 
 
 func connect_signal_selection_changed(_callback: Callable) -> void:
@@ -66,12 +67,11 @@ func group_notification() -> void:
 # ========= Callbacks =========================================
 
 #func _ready() -> void:
-	#var persona: Persona = get_node(PERSONA_PATH)
-	#persona.properties_changed.connect(notify_property_list_changed)
-
+#var persona: Persona = get_node(PERSONA_PATH)
+#persona.properties_changed.connect(notify_property_list_changed)
 
 #func _enter_tree() -> void:
-	#__set_properties()
+#__set_properties()
 
 
 func _set(property: StringName, value: Variant) -> bool:
@@ -95,45 +95,40 @@ func _get(property: StringName) -> Variant:
 func _get_property_list() -> Array[Dictionary]:
 	var props: Array[Dictionary] = []
 	#props.push_back({
-		#"name": "Persona",
-		#"type": TYPE_NIL,
-		#"usage": PROPERTY_USAGE_GROUP
+	#"name": "Persona",
+	#"type": TYPE_NIL,
+	#"usage": PROPERTY_USAGE_GROUP
 	#})
 	#var persona: Persona = get_node(PERSONA_PATH)
 	#if persona:
-		#props.append_array(Data.get_properties_data(persona, PERSONA_PROPS))
+	#props.append_array(Data.get_properties_data(persona, PERSONA_PROPS))
 	##props.push_back({
-		##"name": "Animation",
-		##"type": TYPE_NIL,
-		##"usage": PROPERTY_USAGE_GROUP
+	##"name": "Animation",
+	##"type": TYPE_NIL,
+	##"usage": PROPERTY_USAGE_GROUP
 	##})
 	return props
 
-
 # =============================================================
 # ========= Virtual Methods ===================================
-
 
 # =============================================================
 # ========= Private Functions =================================
 
 #func __set_properties() -> void:
-	#var persona: Persona = get_node(PERSONA_PATH)
-	#if persona:
-		#for prop in PERSONA_PROPS:
-			#_properties[StringName(prop)] = persona
-
+#var persona: Persona = get_node(PERSONA_PATH)
+#if persona:
+#for prop in PERSONA_PROPS:
+#_properties[StringName(prop)] = persona
 
 #func __notify_animations_changed() -> void:
-	#notify_property_list_changed()
-	#_anim_dirty = false
-
+#notify_property_list_changed()
+#_anim_dirty = false
 
 # =============================================================
 # ========= Signal Callbacks ==================================
 
-
 #func _on_animation_player_animation_libraries_updated() -> void:
-	#if not _anim_dirty:
-		#__notify_animations_changed.call_deferred()
-		#_anim_dirty = true
+#if not _anim_dirty:
+#__notify_animations_changed.call_deferred()
+#_anim_dirty = true

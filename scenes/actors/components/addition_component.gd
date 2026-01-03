@@ -10,18 +10,27 @@ const OWNER_COMPONENTS: StringName = &"owner_components"
 var _additions: Array[Node] = []
 var _prev_name: StringName = &""
 
-
 # =============================================================
 # ========= Public Functions ==================================
+
 
 static func get_addition_owners_names(addition: Object, complain: bool = true) -> Array[StringName]:
 	if not addition.has_meta(OWNER_COMPONENTS):
 		if complain:
-			printerr("Owner components were not set on component addition %s." % Data.get_obj_name(addition))
+			printerr(
+				(
+					"Owner components were not set on component addition %s."
+					% Data.get_obj_name(addition)
+				)
+			)
 		return Array([], TYPE_STRING_NAME, "", null)
-	var owners: Array[StringName] = addition.get_meta(OWNER_COMPONENTS, Array([], TYPE_STRING_NAME, "", null))
+	var owners: Array[StringName] = addition.get_meta(
+		OWNER_COMPONENTS, Array([], TYPE_STRING_NAME, "", null)
+	)
 	if owners.is_empty() and complain:
-		printerr("Found empty list of owner components for addition %s." % Data.get_obj_name(addition))
+		printerr(
+			"Found empty list of owner components for addition %s." % Data.get_obj_name(addition)
+		)
 	return owners
 
 
@@ -41,6 +50,7 @@ func register_addition(addition: Node) -> bool:
 
 # =============================================================
 # ========= Callbacks =========================================
+
 
 func _ready() -> void:
 	_prev_name = name
@@ -68,6 +78,7 @@ func _exit_tree() -> void:
 # =============================================================
 # ========= Virtual Methods ===================================
 
+
 func _setup_internal() -> void:
 	_add_additions()
 
@@ -78,6 +89,7 @@ func _finalize_internal() -> void:
 
 func _register_addition(_addition: Node) -> bool:
 	return false
+
 
 ## Use this function to add the required additions. Additions are nodes that
 ## are used by this component but are located somewhere else in the node tree,
@@ -99,7 +111,10 @@ func _add_additions() -> void:
 # =============================================================
 # ========= Private Functions =================================
 
-static func __remove_additions_in_editor(owner_id: int, owner_name: StringName, instances: PackedInt64Array) -> void:
+
+static func __remove_additions_in_editor(
+	owner_id: int, owner_name: StringName, instances: PackedInt64Array
+) -> void:
 	if is_instance_id_valid(owner_id):
 		var owner_component: Node = instance_from_id(owner_id)
 		if owner_component.is_inside_tree():
@@ -109,7 +124,9 @@ static func __remove_additions_in_editor(owner_id: int, owner_name: StringName, 
 		if is_instance_id_valid(id):
 			var addition: Node = instance_from_id(id)
 			if addition.is_inside_tree():
-				var components: Array[StringName] = AdditionComponent.get_addition_owners_names(addition)
+				var components: Array[StringName] = AdditionComponent.get_addition_owners_names(
+					addition
+				)
 				components.erase(owner_name)
 				if components.is_empty():
 					var parent: Node = addition.get_parent()
@@ -135,14 +152,19 @@ func __own(addition: Node) -> void:
 func __remove_additions() -> void:
 	for addition in _additions:
 		var components: Array[StringName] = AdditionComponent.get_addition_owners_names(addition)
-		assert(not components.is_empty(), "Found empty list of owner components for addition %s while removing." % addition.name)
+		assert(
+			not components.is_empty(),
+			"Found empty list of owner components for addition %s while removing." % addition.name
+		)
 		components.erase(name)
 		if components.is_empty():
 			addition.get_parent().remove_child(addition)
 			addition.queue_free()
 
 
-func __add_addition(addition_name: StringName, new_callback: Callable, addition_parent: Node) -> Node:
+func __add_addition(
+	addition_name: StringName, new_callback: Callable, addition_parent: Node
+) -> Node:
 	var addition: Node = addition_parent.get_node_or_null(NodePath(addition_name))
 	if addition:
 		__own(addition)
@@ -156,6 +178,7 @@ func __add_addition(addition_name: StringName, new_callback: Callable, addition_
 
 # =============================================================
 # ========= Signal Callbacks ==================================
+
 
 func _on_renamed() -> void:
 	for addition in _additions:

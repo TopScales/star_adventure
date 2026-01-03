@@ -15,16 +15,26 @@ var standalone_scene: bool = true
 var _loading_path: String = ""
 var _initial_data: Dictionary[StringName, Variant] = {}
 
-
 # =============================================================
 # ========= Public Functions ==================================
 
-func change_main_scene(path: String, use_loading_screen: bool = false, initial_data: Dictionary[StringName, Variant] = {}) -> void:
-	if Err.fail(_loading_path.is_empty(), "Can't change main scene while loading another scene.", "Game"):
+
+func change_main_scene(
+	path: String,
+	use_loading_screen: bool = false,
+	initial_data: Dictionary[StringName, Variant] = {}
+) -> void:
+	if Err.fail(
+		_loading_path.is_empty(), "Can't change main scene while loading another scene.", "Game"
+	):
 		return
 
 	if use_loading_screen:
-		if Err.success_err(get_tree().change_scene_to_file(LOADING_SCREEN_PATH), "Can't open loading screen.", "Game"):
+		if Err.success_err(
+			get_tree().change_scene_to_file(LOADING_SCREEN_PATH),
+			"Can't open loading screen.",
+			"Game"
+		):
 			await get_tree().scene_changed
 			var err: int = ResourceLoader.load_threaded_request(path, "PackedScene", true)
 			if Err.success_err(err, "Error while trying to load scene in the background.", "Game"):
@@ -39,11 +49,14 @@ func change_main_scene(path: String, use_loading_screen: bool = false, initial_d
 # =============================================================
 # ========= Callbacks =========================================
 
+
 func _ready() -> void:
 	randomize()
 	set_process(false)
 	if Engine.is_editor_hint() and version:
-		ProjectSettings.set_setting("application/config/version", version.get_as_string(false, false))
+		ProjectSettings.set_setting(
+			"application/config/version", version.get_as_string(false, false)
+		)
 	if OS.is_debug_build():
 		pass
 
@@ -69,8 +82,10 @@ func _process(_delta: float) -> void:
 		ResourceLoader.THREAD_LOAD_LOADED:
 			set_process(false)
 			var scene: PackedScene = ResourceLoader.load_threaded_get(_loading_path)
-			if Err.success_err(get_tree().change_scene_to_packed(scene), "Can't change main scene."):
-				await  get_tree().scene_changed
+			if Err.success_err(
+				get_tree().change_scene_to_packed(scene), "Can't change main scene."
+			):
+				await get_tree().scene_changed
 				__initialize_scene(_initial_data)
 			_loading_path = ""
 			_initial_data.clear()
@@ -79,9 +94,9 @@ func _process(_delta: float) -> void:
 # =============================================================
 # ========= Virtual Methods ===================================
 
-
 # =============================================================
 # ========= Private Functions =================================
+
 
 func __initialize_scene(initial_data: Dictionary[StringName, Variant]) -> void:
 	standalone_scene = false
@@ -90,7 +105,6 @@ func __initialize_scene(initial_data: Dictionary[StringName, Variant]) -> void:
 	for prop in initial_data:
 		var value: Variant = initial_data[prop]
 		scene.set(prop, value)
-
 
 # =============================================================
 # ========= Signal Callbacks ==================================

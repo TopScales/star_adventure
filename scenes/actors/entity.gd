@@ -13,13 +13,14 @@ extends Node
 
 signal notify(what: StringName, cargo: Variant)
 
-const NOTIFICATION_SETUP_COMPLETED : StringName = &"setup_completed"
+const NOTIFICATION_SETUP_COMPLETED: StringName = &"setup_completed"
 
 var _components: Dictionary[GDScript, Component] = {}
 var _cached: Component
 
 # =============================================================
 # ========= Public Functions ==================================
+
 
 func add_component(component_scene: PackedScene) -> void:
 	var component: Component = component_scene.instantiate() as Component
@@ -58,6 +59,7 @@ func emit_notification(what: StringName, cargo: Variant = null) -> void:
 # =============================================================
 # ========= Callbacks =========================================
 
+
 func _enter_tree() -> void:
 	await get_tree().process_frame
 	if is_inside_tree() and _components.is_empty():
@@ -75,30 +77,40 @@ func _exit_tree() -> void:
 # =============================================================
 # ========= Virtual Methods ===================================
 
-
 # =============================================================
 # ========= Private Functions =================================
 
 #func __initialize() -> void:
-	#if not is_inside_tree():
-		#return
-	#_initialized = true
+#if not is_inside_tree():
+#return
+#_initialized = true
 
 
 func __add_component(component: Component) -> void:
-	if (__component_fulfill_requirements(component)):
+	if __component_fulfill_requirements(component):
 		add_child(component)
 		component.owner = owner
 		if is_inside_tree():
 			component.setup()
 	else:
-		print("WARNING: Component %s not added to entity %s because doesn't fulfill the requirements." % [component.name, name])
+		print(
+			(
+				"WARNING: Component %s not added to entity %s because doesn't fulfill the requirements."
+				% [component.name, name]
+			)
+		)
 
 
 func __register_components() -> void:
 	for i in get_child_count():
 		var component: Component = get_child(i) as Component
-		assert(__component_fulfill_requirements(component), "Component %s doesn't fulfill the requirements to be added to entity %s." % [component.name, name])
+		assert(
+			__component_fulfill_requirements(component),
+			(
+				"Component %s doesn't fulfill the requirements to be added to entity %s."
+				% [component.name, name]
+			)
+		)
 		var component_script: GDScript = component.get_script()
 		if OS.is_debug_build() and _components.has(component_script):
 			printerr("Duplicated script in entity %s." % component.name)
@@ -114,7 +126,6 @@ func __component_fulfill_requirements(component: Component) -> bool:
 		else:
 			return false
 	return true
-
 
 # =============================================================
 # ========= Signal Callbacks ==================================

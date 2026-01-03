@@ -21,17 +21,15 @@ const DECAL_NAME: StringName = &"SelectionDecal"
 var _selection_area: Area3D
 var _selection_decal: Decal
 
-
 # =============================================================
 # ========= Public Functions ==================================
-
 
 # =============================================================
 # ========= Callbacks =========================================
 
-
 # =============================================================
 # ========= Virtual Methods ===================================
+
 
 func _setup() -> void:
 	if not _selection_area.mouse_entered.is_connected(_on_selection_area_mouse_entered):
@@ -42,7 +40,9 @@ func _setup() -> void:
 
 func _add_additions() -> void:
 	if not _selection_area:
-		_selection_area = __add_addition(SELECTION_AREA_NAME, Area3D.new, owner.get_node(Character.PERCEPTION_PATH))
+		_selection_area = __add_addition(
+			SELECTION_AREA_NAME, Area3D.new, owner.get_node(Character.PERCEPTION_PATH)
+		)
 		var collision: CollisionShape3D = CollisionShape3D.new()
 		collision.name = COLLISION_SHAPE_NAME
 		_selection_area.add_child(collision)
@@ -51,7 +51,9 @@ func _add_additions() -> void:
 		var shape: CylinderShape3D = CylinderShape3D.new()
 		collision.shape = shape
 	if not _selection_decal:
-		_selection_decal = __add_addition(DECAL_NAME, Decal.new, owner.get_node(Character.VISUALS_PATH))
+		_selection_decal = __add_addition(
+			DECAL_NAME, Decal.new, owner.get_node(Character.VISUALS_PATH)
+		)
 		_selection_decal.size = Vector3(1, 1, 1)
 		_selection_decal.texture_albedo = load("res://assets/textures/characters/selection.svg")
 		_selection_decal.cull_mask = 1
@@ -71,9 +73,9 @@ func _register_addition(addition: Node) -> bool:
 # =============================================================
 # ========= Private Functions =================================
 
-
 # =============================================================
 # ========= Signal Callbacks ==================================
+
 
 func _on_selection_area_mouse_entered() -> void:
 	pass
@@ -85,7 +87,9 @@ func _on_selection_area_mouse_exited() -> void:
 	# TODO: Remove highlight.
 
 
-func _on_selection_area_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+func _on_selection_area_input_event(
+	_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int
+) -> void:
 	if event.is_action_pressed("main_click"):
 		if Input.is_key_pressed(KEY_CTRL):
 			selected = not selected

@@ -1,8 +1,7 @@
 ##
 ##
 @tool
-@abstract
-class_name AnimationComponent
+@abstract class_name AnimationComponent
 extends AdditionComponent
 
 const NOTIFICATION_ANIMATION_PLAYER_READY: StringName = &"animation_player_ready"
@@ -14,16 +13,15 @@ const NOTIFICATION_ANIMATION_PLAYER_READY: StringName = &"animation_player_ready
 
 var _animations_added: bool = false
 
-
 # =============================================================
 # ========= Public Functions ==================================
-
 
 # =============================================================
 # ========= Callbacks =========================================
 
 # =============================================================
 # ========= Virtual Methods ===================================
+
 
 func _setup_internal() -> void:
 	super._setup_internal()
@@ -39,11 +37,14 @@ func _finalize_internal() -> void:
 # =============================================================
 # ========= Private Functions =================================
 
+
 func __add_animations() -> void:
 	if not _animations_added:
 		for anim_name in animations:
 			var animation: Animation = _ap.add_animation(anim_name)
-			var components: Array[StringName] = AdditionComponent.get_addition_owners_names(animation, false)
+			var components: Array[StringName] = AdditionComponent.get_addition_owners_names(
+				animation, false
+			)
 			if components.is_empty():
 				var a: Array[StringName] = [name]
 				animation.set_meta(OWNER_COMPONENTS, a)
@@ -65,6 +66,7 @@ func __remove_animations() -> void:
 
 # =============================================================
 # ========= Signal Callbacks ==================================
+
 
 func _on_renamed() -> void:
 	for anim_name in animations:

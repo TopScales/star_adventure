@@ -6,16 +6,16 @@ class_name Version
 extends Resource
 
 @export_tool_button("Increase fix", "Add") var increase_fix := __tool_button_inc_fix
-@export_range(0,10,1,"or_greater") var major: int = 0
-@export_range(0,20,1,"or_greater") var minor: int = 0
-@export_range(0,20,1,"or_greater") var patch: int = 0
+@export_range(0, 10, 1, "or_greater") var major: int = 0
+@export_range(0, 20, 1, "or_greater") var minor: int = 0
+@export_range(0, 20, 1, "or_greater") var patch: int = 0
 @export var fix: String = ""
 @export_enum("pre-alpha", "alpha", "beta", "dev", "rc", "release") var status: String = "release"
 @export var nickname: String = ""
 
-
 # =============================================================
 # ========= Public Functions ==================================
+
 
 static func check_fix_string(string: String) -> String:
 	if string.length() > 1:
@@ -44,7 +44,9 @@ static func inc_fix(input_fix: String) -> String:
 		var ascii := input_fix.to_ascii_buffer()
 		assert(ascii.size() == 1, "Version fix field should be a single lowercase letter.")
 		var value := ascii[0]
-		assert(value >= 97 and value <= 122, "Version fix field should be a single lowercase letter")
+		assert(
+			value >= 97 and value <= 122, "Version fix field should be a single lowercase letter"
+		)
 		assert(value != 122, "Maximum fix letter reached.")
 		ascii[0] = value + 1
 		return ascii.get_string_from_ascii()
@@ -99,6 +101,7 @@ func set_from_bytes(bytes: PackedByteArray) -> void:
 # =============================================================
 # ========= Callbacks =========================================
 
+
 func _to_string() -> String:
 	return "Version: " + get_as_string(false)
 
@@ -106,9 +109,9 @@ func _to_string() -> String:
 # =============================================================
 # ========= Virtual Methods ===================================
 
-
 # =============================================================
 # ========= Private Functions =================================
+
 
 func __tool_button_inc_fix() -> void:
 	fix = Version.inc_fix(fix)

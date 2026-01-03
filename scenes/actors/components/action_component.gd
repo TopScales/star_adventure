@@ -1,8 +1,7 @@
 ##
 ##
 @tool
-@abstract
-class_name ActionComponent
+@abstract class_name ActionComponent
 extends AnimationComponent
 
 @export var action: BehaviorTree
@@ -11,17 +10,15 @@ extends AnimationComponent
 
 var _order_stack: Array[Dictionary] = []
 
-
 # =============================================================
 # ========= Public Functions ==================================
-
 
 # =============================================================
 # ========= Callbacks =========================================
 
-
 # =============================================================
 # ========= Virtual Methods ===================================
+
 
 func _setup_internal() -> void:
 	if Engine.is_editor_hint():
@@ -45,6 +42,7 @@ func _finalize_internal() -> void:
 # =============================================================
 # ========= Private Functions =================================
 
+
 func __add_order(order: Dictionary) -> void:
 	_order_stack.push_back(order)
 
@@ -59,7 +57,6 @@ func __clear_stack() -> void:
 
 func __get_next_from_stack() -> Dictionary:
 	return _order_stack.pop_front()
-
 
 # =============================================================
 # ========= Signal Callbacks ==================================

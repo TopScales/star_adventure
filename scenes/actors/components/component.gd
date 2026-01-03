@@ -19,16 +19,14 @@ extends Node
 ## initialization through the [method Object._init].
 var required_components: Array[GDScript] = []
 
-
 # =============================================================
 # ========= Public Functions ==================================
-
 
 ## At runtime, won't be called for components already in a scene. It will be
 ## called when the component is added later. It is also called insde the editor.
 #func initialize() -> void:
-	#_initialize_internal()
-	#_initialize()
+#_initialize_internal()
+#_initialize()
 
 
 func setup() -> void:
@@ -54,6 +52,7 @@ func register_required_component(required: Component) -> void:
 # =============================================================
 # ========= Callbacks =========================================
 
+
 func _ready() -> void:
 	var entity: Entity = get_parent()
 	if not entity.notify.is_connected(_on_entity_notify):
@@ -62,6 +61,7 @@ func _ready() -> void:
 
 # =============================================================
 # ========= Virtual Methods ===================================
+
 
 func _setup() -> void:
 	pass
@@ -90,9 +90,9 @@ func _register_required_component(_required: Component) -> void:
 # =============================================================
 # ========= Private Functions =================================
 
-
 # =============================================================
 # ========= Signal Callbacks ==================================
+
 
 func _on_entity_notify(_what: StringName, _cargo: Variant) -> void:
 	pass

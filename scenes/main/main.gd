@@ -2,13 +2,12 @@
 ##
 extends Control
 
-
 # =============================================================
 # ========= Public Functions ==================================
 
-
 # =============================================================
 # ========= Callbacks =========================================
+
 
 func _ready() -> void:
 	Game.standalone_scene = false
@@ -18,9 +17,9 @@ func _ready() -> void:
 # =============================================================
 # ========= Virtual Methods ===================================
 
-
 # =============================================================
 # ========= Private Functions =================================
+
 
 func __check_existing_save_files() -> void:
 	pass
@@ -31,7 +30,7 @@ func __check_existing_save_files() -> void:
 
 
 func _on_continue_pressed() -> void:
-	pass # Replace with function body.
+	pass  # Replace with function body.
 
 
 func _on_new_game_pressed() -> void:
