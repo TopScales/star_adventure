@@ -41,6 +41,6 @@ func _setup() -> void:
 
 func _on_entity_notify(what: StringName, cargo: Variant) -> void:
 	super._on_entity_notify(what, cargo)
-	if what == Persona.NOTIFICATION_TYPE_CHANGED:
-		var type_data: CharacterType = cargo as CharacterType
-		_speed = type_data.speed
+	#if what == Persona.NOTIFICATION_TYPE_CHANGED:
+		#var type_data: CharacterType = cargo as CharacterType
+		#_speed = type_data.speed

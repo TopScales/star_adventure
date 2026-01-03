@@ -22,6 +22,7 @@ Log="*res://addons/logerr/autoload/logger.gd"
 Err="*res://addons/logerr/autoload/err.gd"
 Benchmark="*res://addons/logerr/autoload/benchmark.gd"
 Game="*res://scenes/game/game.tscn"
+Data="*res://scenes/game/data.gd"
 
 [debug]
 

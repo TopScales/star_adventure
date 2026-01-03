@@ -13,7 +13,6 @@ const CONTROLLER_PATH: String = "Controller"
 const BEHAVIOR_PATH: String = CONTROLLER_PATH + "/Behavior"
 const SKELETON_PATH: String = "Skeleton3D"
 const NAV_AGENT_PATH: String = "NavigationAgent"
-const PERCEPTION_PATH: String = "Perception"
 
 const PERSONA_PROPS: Array[String] = ["category", "type"]
 
@@ -66,13 +65,13 @@ func group_notification() -> void:
 # =============================================================
 # ========= Callbacks =========================================
 
-func _ready() -> void:
-	var persona: Persona = get_node(PERSONA_PATH)
-	persona.properties_changed.connect(notify_property_list_changed)
+#func _ready() -> void:
+	#var persona: Persona = get_node(PERSONA_PATH)
+	#persona.properties_changed.connect(notify_property_list_changed)
 
 
-func _enter_tree() -> void:
-	__set_properties()
+#func _enter_tree() -> void:
+	#__set_properties()
 
 
 func _set(property: StringName, value: Variant) -> bool:
@@ -95,19 +94,19 @@ func _get(property: StringName) -> Variant:
 
 func _get_property_list() -> Array[Dictionary]:
 	var props: Array[Dictionary] = []
-	props.push_back({
-		"name": "Persona",
-		"type": TYPE_NIL,
-		"usage": PROPERTY_USAGE_GROUP
-	})
-	var persona: Persona = get_node(PERSONA_PATH)
-	if persona:
-		props.append_array(Data.get_properties_data(persona, PERSONA_PROPS))
 	#props.push_back({
-		#"name": "Animation",
+		#"name": "Persona",
 		#"type": TYPE_NIL,
 		#"usage": PROPERTY_USAGE_GROUP
 	#})
+	#var persona: Persona = get_node(PERSONA_PATH)
+	#if persona:
+		#props.append_array(Data.get_properties_data(persona, PERSONA_PROPS))
+	##props.push_back({
+		##"name": "Animation",
+		##"type": TYPE_NIL,
+		##"usage": PROPERTY_USAGE_GROUP
+	##})
 	return props
 
 
@@ -118,11 +117,11 @@ func _get_property_list() -> Array[Dictionary]:
 # =============================================================
 # ========= Private Functions =================================
 
-func __set_properties() -> void:
-	var persona: Persona = get_node(PERSONA_PATH)
-	if persona:
-		for prop in PERSONA_PROPS:
-			_properties[StringName(prop)] = persona
+#func __set_properties() -> void:
+	#var persona: Persona = get_node(PERSONA_PATH)
+	#if persona:
+		#for prop in PERSONA_PROPS:
+			#_properties[StringName(prop)] = persona
 
 
 #func __notify_animations_changed() -> void:
