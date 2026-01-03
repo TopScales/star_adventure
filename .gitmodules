@@ -4,3 +4,6 @@
 [submodule "godot/source"]
 	path = godot/source
 	url = git@github.com:TopScales/godot.git
+[submodule "godot/modules/limboai"]
+	path = godot/modules/limboai
+	url = git@github.com:TopScales/limboai.git

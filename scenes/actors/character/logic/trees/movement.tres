@@ -1,0 +1,24 @@
+[gd_resource type="BehaviorTree" load_steps=7 format=3 uid="uid://bo0hrliluasmh"]
+
+[ext_resource type="Script" uid="uid://jukcawrl1vvh" path="res://scenes/actors/character/logic/tasks/move.gd" id="2_2ytfd"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_0siqg"]
+
+[sub_resource type="BBNode" id="BBNode_0siqg"]
+resource_name = "AnimationPlayer"
+saved_value = NodePath("AnimationPlayer")
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_2ytfd"]
+animation_player = SubResource("BBNode_0siqg")
+animation_name = &"animations/Run"
+
+[sub_resource type="BTAction" id="BTAction_wj86c"]
+script = ExtResource("2_2ytfd")
+
+[sub_resource type="BTSequence" id="BTSequence_nj03t"]
+custom_name = "Sequence - Move"
+children = [SubResource("BTPlayAnimation_2ytfd"), SubResource("BTAction_wj86c")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_0siqg")
+root_task = SubResource("BTSequence_nj03t")

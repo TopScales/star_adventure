@@ -1,41 +1,83 @@
 # My Game Documentation
 
+>📝 **NOTE:** Different approaches exist for having useful documentation at hand. The best one will depend on the characteristics, the size and preferences of the development team. One approach is to have all the documentation in this `docs` folder with a thoughtful file structure. You can also keep the documentation in the [wiki pages](https://docs.github.com/en/communities/documenting-your-project-with-wikis/about-wikis) of your game's GitHub repository. It is also possible to follow a mixed approach, where internal documents that are only relevant to the team are written in the wiki, while documents that can be of interest to external people are located in the `docs` folder. And of course there is always the possibility to have all documentation in an external space, completely independent of the game's repository.
 
+Keeping up-to-date documentation is critically important in video game development, because the process can be highly collaborative, complex, and often subject to change. Documentation, especially the Game Design Document (GDD), acts as the central, single source of truth that guides the entire team. When documentation is treated as an integral asset-updated alongside the codebase, it becomes a reliable reference for contributors, testers, and stakeholders.
 
-python -m venv venv
-.\venv\Scripts\activate.bat
+Having clear and accessible documentation from the beginning of the project is crucial to have a shared understanding of the goals and expectation of the game. This will allow for new team members to get on-board faster and to better understand the project's vision.
 
-pip install mkdocs-material
+Storing the documentation within the same repository as the game project provides several advantages:
+- Version Control Alignment: Documentation evolves in direct sync with code changes, ensuring consistency across revisions.
+- Reduced Context Switching: Contributors can access game assets, scripts, and documentation from a unified location.
+- Simplified Collaboration: Pull requests, issue tracking, and reviews can include updates to both code and documentation.
+- Long-Term Maintainability: Historical documentation remains accessible, improving traceability.
 
-mkdocs serve
+The current documentation makes use of [Material](https://squidfunk.github.io/mkdocs-material/) for [MkDocs](https://www.mkdocs.org/). Make sure that all team members are familiar with how documents are created using this framework.
 
-Settings add
+## How to use the docs
 
+### Local Installation
+
+To render this documentation locally, install MkDocs and the Material for MkDocs theme.
+
+#### Prerequisites
+
+* Python 3.7 or later
+* pip (Python package installer)
+
+#### Installation Steps
+
+1. It is preferred to install Material framework in a virtual environment:
+    ```bash
+    python -m venv venv
+    .\venv\Scripts\activate.bat
+    ```
+2. Install the Material for MkDocs theme, and plugins:
+    ```bash
+    pip install mkdocs-material
+    pip install mkdocs-awesome-nav
+    ```
+3. To view the documentation locally, navigate to the project root (where `mkdocs.yml` is located) and run:
+   ```bash
+   mkdocs serve
+   ```
+
+The local documentation site refreshes automatically whenever changes are made to any file inside the `docs/` directory. This enables rapid iteration and a smooth editing experience.
+
+>📝 **NOTE:** If the docs are not updating automatically, it is recommended to install `click` version less than 8.3.0, like `pip install "click==8.2.1"`.
+
+### Deploying to ReadTheDocs
+
+To publish the documentation online using [ReadTheDocs](https://about.readthedocs.com/):
+
+1. Create an account on ReadTheDocs.
+2. Import your repository (GitHub, GitLab, or Bitbucket).
+3. ReadTheDocs will automatically detect `mkdocs.yml` and configure a build using MkDocs.
+4. In the project settings on ReadTheDocs, confirm that the **Documentation Type** is set to **MkDocs**.
+5. Trigger a build or push new changes; ReadTheDocs will rebuild and deploy the site automatically.
+
+For advanced configuration (custom domains, versioning, and build customization), refer to the ReadTheDocs administration panel.
+
+## Setting Up VSCode
+
+Although the project can be opened in any editor, the best experience is achieved with Visual Studio Code (VSCode).
+
+To improve editing and previewing MkDocs content, install **MkDocs Syntax Highlight** extension. This extension enhances YAML and markdown editing, especially for `mkdocs.yml`.
+
+To enable schema validation and improved autocompletion for Material extensions, add the following configuration to your VSCode `settings.json`:
+
+```json
 "yaml.schemas": {
-        "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
-    },
-    "yaml.customTags": [
-        "!ENV scalar",
-        "!ENV sequence",
-        "!relative scalar",
-        "tag:yaml.org,2002:python/name:material.extensions.emoji.to_svg",
-        "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
-        "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"
-    ]
+    "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
+},
+"yaml.customTags": [
+    "!ENV scalar",
+    "!ENV sequence",
+    "!relative scalar",
+    "tag:yaml.org,2002:python/name:material.extensions.emoji.to_svg",
+    "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
+    "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"
+]
+```
 
-
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+This configuration improves validation, provides clearer error messages, and enhances the editing workflow for Material-enhanced MkDocs projects.

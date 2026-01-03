@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dle4etrwfwswe"]
+
+[ext_resource type="Script" uid="uid://wpo18mr52mgk" path="res://scenes/actors/agent/agent.gd" id="1_w6nil"]
+[ext_resource type="Script" uid="uid://nbit734rk664" path="res://scenes/actors/entity.gd" id="2_0ag1j"]
+[ext_resource type="Script" uid="uid://essfhcynqqmq" path="res://scenes/actors/agent/agent_controller.gd" id="3_0ag1j"]
+[ext_resource type="Script" uid="uid://84y1evmr3mm6" path="res://scenes/actors/agent/visuals.gd" id="4_axymb"]
+[ext_resource type="Script" uid="uid://bwhmux3atiury" path="res://scenes/actors/agent/agent_animation_player.gd" id="4_rtdub"]
+[ext_resource type="Script" uid="uid://dt1sbwdla1tui" path="res://scenes/actors/agent/perception.gd" id="5_rtdub"]
+
+[node name="Agent" type="Node2D"]
+script = ExtResource("1_w6nil")
+metadata/_custom_type_script = "uid://wpo18mr52mgk"
+
+[node name="Entity" type="Node" parent="."]
+script = ExtResource("2_0ag1j")
+metadata/_custom_type_script = "uid://nbit734rk664"
+
+[node name="Controller" type="LimboHSM" parent="."]
+script = ExtResource("3_0ag1j")
+metadata/_custom_type_script = "uid://essfhcynqqmq"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+script = ExtResource("4_rtdub")
+metadata/_custom_type_script = "uid://bwhmux3atiury"
+
+[node name="Visuals" type="Node2D" parent="."]
+script = ExtResource("4_axymb")
+metadata/_custom_type_script = "uid://84y1evmr3mm6"
+
+[node name="Perception" type="Node2D" parent="."]
+script = ExtResource("5_rtdub")
+metadata/_custom_type_script = "uid://dt1sbwdla1tui"

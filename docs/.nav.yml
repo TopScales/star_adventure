@@ -1,0 +1,7 @@
+nav:
+  - index.md
+  - Project:
+    - project/about.md
+    - project/main.md
+    - project/level.md
+  - '*'

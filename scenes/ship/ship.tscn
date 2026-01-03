@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgiw1n2yxwc4j"]
+
+[ext_resource type="PackedScene" uid="uid://dle4etrwfwswe" path="res://scenes/actors/agent/agent.tscn" id="1_ccv4y"]
+[ext_resource type="Script" uid="uid://bk1uqisii8c3f" path="res://scenes/ship/ship.gd" id="2_u5c2e"]
+
+[node name="Ship" instance=ExtResource("1_ccv4y")]
+script = ExtResource("2_u5c2e")

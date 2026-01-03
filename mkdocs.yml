@@ -24,6 +24,9 @@ theme:
         name: Light mode
       primary: orange
       accent: purple
+plugins:
+  - search
+  - awesome-nav
 markdown_extensions:
   - attr_list
   - pymdownx.emoji:
