@@ -1,0 +1,17 @@
+name: 📊 Static Checks
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  static-checks:
+    name: Code style
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Scony/godot-gdscript-toolkit@master
+      - run: gdformat --check source/
+      - run: gdlint source/

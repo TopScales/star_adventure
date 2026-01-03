@@ -1,33 +1,22 @@
 # Star Adventure
 
-<p align="center"> <!-- Example badges --> <img src="https://img.shields.io/badge/Godot-4.5-blue" /> <img src="https://img.shields.io/github/license/TopScales/star_adventure" /> <img src="https://img.shields.io/github/actions/workflow/status/[user]/[repo]/build.yml?label=Build" /> </p>
+[![Godot 4.5](https://img.shields.io/badge/Godot-4.5-blue?logo=godotengine)](https://godotengine.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-A brief description of your game. Write a short paragraph summarizing the core concept and what makes your game unique. Avoid using bullet points here.
-
->📝 **NOTE:** Add a showcase image. You can start with just a simple logo, or an early screenshot.
+**Star Adventure** is a fast-paced mobile *shoot ’em up* inspired by Space Invaders, designed for short, intense play sessions. Players pilot a spacecraft through escalating waves of enemies and environmental hazards, relying on positioning, momentum, and spatial awareness rather than raw firepower or complex upgrades.
 
 <p align="center">
   <img src="assets/logo/logo.png" />
 </p>
 
-*A one-sentence presentation of your game, optionally relating to the image above.*
+*Move smart. Survive longer.*
 
 ## 🛠️ Getting Started
 
 To begin working on this project, follow the steps below:
 
->📝 **NOTE:** Choose one of the options for editing the project.
-
-[Easiest standard way]
-- Download the **Godot 4.5.1** editor from the official [Godot website](https://downloads.godotengine.org/?version=4.5.1&flavor=stable&slug=win64.exe.zip&platform=windows.64)
-- Clone the project: `git clone git@github.com:TopScales/godot_starter.git`
-- Open the project using the editor
-
-[Custom Editor Using VSCode]
-
-- Clone the project `git clone git@github.com:TopScales/godot_starter.git`
+- Clone the project `git clone git@github.com:TopScales/star_adventure.git`
 - Update all submodules `git submodule update --init`
-- Check out the correct Godot editor branch for your project
 - Copy the content of the `misc/vscode` folder into a new `.vscode` folder
 - Compile the editor using one of the available VSCode tasks: press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> and select `Build Custom Editor` or `Build Custom Editor (DEBUG)`
 - Run the editor from VScode via **Run and Debug** in the activity bar, then press the play button.
@@ -36,27 +25,29 @@ To begin working on this project, follow the steps below:
 
 To keep the project organized, different types of files are stored in dedicated folders. The project follows the structure illustrated below.
 
->📝 **NOTE:** Choose a file structure that fits your project and enforce it consistently throughout development.
 
 ```{.yaml .no-copy}
 root/
 │
 ├── addons/             # Addons and tools used for the project
 ├── assets/
+│   ├── fonts/          # Fonts used for the game
+│   ├── gui/            # Themes and images used for GUI elements
 │   ├── icons/
 │   │   ├── classes/    # Editor-only class icons
 │   │   └── system/     # System icons used in the game
-│   ├── meshes/         # 3D objects meshes
-│   ├── materials/      # All materials, including 3D object materials
+│   ├── logo/           # Logo of the game
 │   ├── textures/       # Textures and images
 │   └── sounds/         # Sound assets
 ├── data/               # Game data
 ├── docs/               # Documentation
-├── godot/              # Godot source used for this project and additional modules
-├── libs/               # GDExtension libraries
+├── godot/
+│   ├── modules/        # C++ Godot modules
+│   └── source/         # Godot editor source code
 ├── misc/               # Miscellaneous files (e.g., VSCode-specific files)
 ├── scenes/             # Game scenes and scripts
 ├── tests/              # Scenes and scripts for testing various modules
+├── CREDITS             # Credits information of assets and contributors
 ├── LICENSE             # License file
 ├── mkdocs.yml          # MkDocs configuration
 ├── project.godot       # Godot project file
@@ -79,8 +70,8 @@ Please follow these guidelines while working on the project. Having consistent n
 Use *snake_case* for all file and folder names. Avoid using whitespace. This ensures clarity and prevents cross-platform issues related to case sensitivity.
 
 For GDScript, follow the official [style guide](https://docs.godotengine.org/en/latest/tutorials/scripting/gdscript/gdscript_styleguide.html).
-For C++ modules and libraries, follow Godot’s [code style](https://contributing.godotengine.org/en/latest/engine/guidelines/code_style.html).
-(Third-party libraries may use their own style conventions.)
+For C++ modules and libraries, follow Godot’s [code style](https://contributing.godotengine.org/en/latest/engine/guidelines/code_style.html)
+(third-party libraries may use their own style conventions).
 
 During development, regularly test the modules you are working on to maintain quality.
 For GDScript modules, use [GUT](https://gut.readthedocs.io/en/v9.5.0/) for unit testing.
@@ -90,10 +81,10 @@ For C++ modules, create [unit tests](https://docs.godotengine.org/en/stable/engi
 
 For any question related to the project contact the corresponding area manager.
 
-- **Project Lead**: Person 1 person1@contact.com
-- **Programming Lead**: Person 2 person2@contact.com
-- **Game Design Lead**: Person 3 person3@contact.com
-- **Art Lead**: Person 4 person4@contact.com
+- **Project Lead**: Rafael M. Gordillo [<img height="16" width="16" src="https://cdn.simpleicons.org/discord" />](https://discord.com/users/419045373194141696/)
+- **Programming Lead**: Rafael M. Gordillo [<img height="16" width="16" src="https://cdn.simpleicons.org/discord" />](https://discord.com/users/419045373194141696/)
+- **Game Design Lead**: Rafael M. Gordillo [<img height="16" width="16" src="https://cdn.simpleicons.org/discord" />](https://discord.com/users/419045373194141696/)
+- **Art Lead**: Rafael M. Gordillo [<img height="16" width="16" src="https://cdn.simpleicons.org/discord" />](https://discord.com/users/419045373194141696/)
 
 ## 🚀 Deploying the game
 
@@ -102,7 +93,5 @@ For any question related to the project contact the corresponding area manager.
 *This section can be completed later.*
 
 ## 🪪 License
-
->📝 **NOTE:** AAdd the license that best fits your project. If this is a private project, remove the [LICENSE](LICENSE) file from the root directory.
 
 Distributed under the [MIT license](https://opensource.org/license/MIT).

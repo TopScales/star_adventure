@@ -1,6 +1,4 @@
-# My Game Documentation
-
->📝 **NOTE:** Different approaches exist for having useful documentation at hand. The best one will depend on the characteristics, the size and preferences of the development team. One approach is to have all the documentation in this `docs` folder with a thoughtful file structure. You can also keep the documentation in the [wiki pages](https://docs.github.com/en/communities/documenting-your-project-with-wikis/about-wikis) of your game's GitHub repository. It is also possible to follow a mixed approach, where internal documents that are only relevant to the team are written in the wiki, while documents that can be of interest to external people are located in the `docs` folder. And of course there is always the possibility to have all documentation in an external space, completely independent of the game's repository.
+# Star Adventure
 
 Keeping up-to-date documentation is critically important in video game development, because the process can be highly collaborative, complex, and often subject to change. Documentation, especially the Game Design Document (GDD), acts as the central, single source of truth that guides the entire team. When documentation is treated as an integral asset-updated alongside the codebase, it becomes a reliable reference for contributors, testers, and stakeholders.
 
