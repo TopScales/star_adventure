@@ -7,9 +7,9 @@ extends ActionComponent
 
 const SPEED_VAR: StringName = &"speed"
 
-@onready var nav_agent: NavigationAgent3D = owner.get_node(Character.NAV_AGENT_PATH)
-
 var _speed: float = 1.0
+
+@onready var nav_agent: NavigationAgent3D = owner.get_node(Character.NAV_AGENT_PATH)
 
 # =============================================================
 # ========= Public Functions ==================================

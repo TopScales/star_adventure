@@ -6,9 +6,9 @@ extends AnimationComponent
 
 @export var action: BehaviorTree
 
-@onready var behavior: BTState = owner.get_node(Character.BEHAVIOR_PATH)
-
 var _order_stack: Array[Dictionary] = []
+
+@onready var behavior: BTState = owner.get_node(Character.BEHAVIOR_PATH)
 
 # =============================================================
 # ========= Public Functions ==================================

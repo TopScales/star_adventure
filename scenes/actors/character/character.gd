@@ -16,9 +16,10 @@ const NAV_AGENT_PATH: String = "NavigationAgent"
 
 const PERSONA_PROPS: Array[String] = ["category", "type"]
 
+var _properties: Dictionary[StringName, Node] = {}
+
 @onready var movement: CharacterMovement = $Entity/Movement
 
-var _properties: Dictionary[StringName, Node] = {}
 #var _anim_dirty: bool = false
 
 # Follow the presentation, abstrctio, control architecture

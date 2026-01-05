@@ -7,13 +7,13 @@ const LOADING_SCREEN_PATH: String = "res://scenes/game/loading_screen.tscn"
 
 @export var version: Version
 
-@onready var settings: Settings = $Settings
-@onready var debug: Debug = null
-
 var standalone_scene: bool = true
 
 var _loading_path: String = ""
 var _initial_data: Dictionary[StringName, Variant] = {}
+
+@onready var settings: Settings = $Settings
+@onready var debug: Debug = null
 
 # =============================================================
 # ========= Public Functions ==================================

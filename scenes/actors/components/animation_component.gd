@@ -9,9 +9,9 @@ const NOTIFICATION_ANIMATION_PLAYER_READY: StringName = &"animation_player_ready
 @export var animations: Array[StringName] = []
 @export var wait_notification: bool = true
 
-@onready var _ap: AgentAnimationPlayer = owner.get_node(Agent.ANIMATION_PLAYER_PATH)
-
 var _animations_added: bool = false
+
+@onready var _ap: AgentAnimationPlayer = owner.get_node(Agent.ANIMATION_PLAYER_PATH)
 
 # =============================================================
 # ========= Public Functions ==================================
