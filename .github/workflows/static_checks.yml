@@ -10,9 +10,11 @@ jobs:
     name: Code style
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: ./misc/gdscript
     steps:
       - uses: actions/checkout@v4
       - uses: Scony/godot-gdscript-toolkit@master
-      - run: cd misc/gdscript
       - run: gdformat --check ../../scenes/
       - run: gdlint ../../scenes/
