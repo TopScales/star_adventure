@@ -4,4 +4,12 @@ nav:
     - project/about.md
     - project/main.md
     - project/level.md
+  - Game Design Document:
+    - gdd/intro.md
+    - gdd/controls.md
+    - gdd/mechanics.md
+    - gdd/enemies.md
+    - gdd/progression.md
+    - gdd/visuals.md
+    - gdd/requirements.md
   - '*'

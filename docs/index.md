@@ -1,4 +1,4 @@
-# Star Adventure
+# Introduction
 
 Keeping up-to-date documentation is critically important in video game development, because the process can be highly collaborative, complex, and often subject to change. Documentation, especially the Game Design Document (GDD), acts as the central, single source of truth that guides the entire team. When documentation is treated as an integral asset-updated alongside the codebase, it becomes a reliable reference for contributors, testers, and stakeholders.
 
@@ -26,35 +26,23 @@ To render this documentation locally, install MkDocs and the Material for MkDocs
 #### Installation Steps
 
 1. It is preferred to install Material framework in a virtual environment:
-    ```bash
+    ```powershell
     python -m venv venv
     .\venv\Scripts\activate.bat
     ```
 2. Install the Material for MkDocs theme, and plugins:
-    ```bash
+    ```powershell
     pip install mkdocs-material
     pip install mkdocs-awesome-nav
     ```
 3. To view the documentation locally, navigate to the project root (where `mkdocs.yml` is located) and run:
-   ```bash
+   ```powershell
    mkdocs serve
    ```
 
 The local documentation site refreshes automatically whenever changes are made to any file inside the `docs/` directory. This enables rapid iteration and a smooth editing experience.
 
 >📝 **NOTE:** If the docs are not updating automatically, it is recommended to install `click` version less than 8.3.0, like `pip install "click==8.2.1"`.
-
-### Deploying to ReadTheDocs
-
-To publish the documentation online using [ReadTheDocs](https://about.readthedocs.com/):
-
-1. Create an account on ReadTheDocs.
-2. Import your repository (GitHub, GitLab, or Bitbucket).
-3. ReadTheDocs will automatically detect `mkdocs.yml` and configure a build using MkDocs.
-4. In the project settings on ReadTheDocs, confirm that the **Documentation Type** is set to **MkDocs**.
-5. Trigger a build or push new changes; ReadTheDocs will rebuild and deploy the site automatically.
-
-For advanced configuration (custom domains, versioning, and build customization), refer to the ReadTheDocs administration panel.
 
 ## Setting Up VSCode
 

@@ -8,7 +8,7 @@ The recommended way of working with this project is by using [VSCode](https://co
 
 It is highly recommended for programmers to use [GitHub Copilot](https://code.visualstudio.com/docs/copilot/getting-started).
 
-### Extensions
+### VSCode Extensions
 
 - **Godot-tools**. Useful for working with Godot files.
 - **GitLens**. Shows more information on git changes.
