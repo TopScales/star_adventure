@@ -28,6 +28,16 @@ Data="*res://scenes/game/data.gd"
 
 gdscript/warnings/return_value_discarded=1
 
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=1920
+window/size/window_width_override=540
+window/size/window_height_override=960
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/gut/plugin.cfg", "res://addons/logerr/plugin.cfg")
@@ -52,4 +62,6 @@ theme/custom_font="uid://clgckxt3jsfl8"
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.014266662, 0.011999998, 0.08, 1)

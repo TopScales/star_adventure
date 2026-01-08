@@ -14,7 +14,6 @@ extends Node2D
 signal despawned
 
 const ENTITY_PATH: String = "Entity"
-const ANIMATION_PLAYER_PATH: String = "AnimationPlayer"
 const VISUALS_PATH: String = "Visuals"
 const PERCEPTION_PATH: String = "Perception"
 

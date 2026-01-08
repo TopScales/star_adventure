@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bottwp6to4ekh"
-path="res://.godot/imported/chassis.svg-8de0446e24062df436036d17e97096fc.ctex"
+uid="uid://yjdeu5onnisj"
+path="res://.godot/imported/ship.svg-20011e80fb5e1022ab0443edd062a4cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ship/chassis.svg"
-dest_files=["res://.godot/imported/chassis.svg-8de0446e24062df436036d17e97096fc.ctex"]
+source_file="res://assets/textures/ship/ship.svg"
+dest_files=["res://.godot/imported/ship.svg-20011e80fb5e1022ab0443edd062a4cf.ctex"]
 
 [params]
 

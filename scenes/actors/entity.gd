@@ -55,7 +55,6 @@ func remove_component(component_script: GDScript) -> void:
 func emit_notification(what: StringName, cargo: Variant = null) -> void:
 	notify.emit(what, cargo)
 
-
 # =============================================================
 # ========= Callbacks =========================================
 
@@ -79,12 +78,6 @@ func _exit_tree() -> void:
 
 # =============================================================
 # ========= Private Functions =================================
-
-#func __initialize() -> void:
-#if not is_inside_tree():
-#return
-#_initialized = true
-
 
 func __add_component(component: Component) -> void:
 	if __component_fulfill_requirements(component):
