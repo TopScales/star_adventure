@@ -15,17 +15,6 @@ metadata/_custom_type_script = "uid://bh8bk6l65lp5u"
 
 [node name="Hull" type="Node" parent="Entity" index="1"]
 script = ExtResource("3_wxx60")
-texture = ExtResource("5_c54or")
-centered = true
-offset = Vector2(0, 0)
-flip_h = false
-flip_v = false
-hframes = 1
-vframes = 1
-frame = 0
-region_enabled = false
-region_rect = Rect2(0, 0, 0, 0)
-region_filter_clip_enabled = false
 metadata/_custom_type_script = "uid://cihek8klibm6r"
 
 [node name="HullSprite" type="Sprite2D" parent="Visuals" index="0"]

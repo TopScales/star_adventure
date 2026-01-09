@@ -128,12 +128,12 @@ func _ready() -> void:
 func _enter_tree() -> void:
 	if Engine.is_editor_hint():
 		await get_tree().process_frame
-		if is_inside_tree() and _status == Status.UNKOWN:
+		if is_inside_tree() and _status == Status.NOT_READY:
 			setup()
 
 
 func _exit_tree() -> void:
-	if Engine.is_editor_hint() and owner and is_instance_valid(owner) and _status != Status.UNKOWN:
+	if Engine.is_editor_hint() and owner and is_instance_valid(owner) and _status != Status.NOT_READY:
 		var ids: PackedInt64Array = PackedInt64Array()
 		Err.try_resize(ids.resize(_additions.size()), _MODULE)
 		var index: int = 0

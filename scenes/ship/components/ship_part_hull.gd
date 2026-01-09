@@ -16,7 +16,7 @@ func _init() -> void:
 	_additions = {
 		&"HullSprite": {
 			AdditionComponent.ADDITION_NODE: _sprite,
-			AdditionComponent.ADDITION_PARENT: Agent.VISUALS_PATH,
+			AdditionComponent.ADDITION_PARENT: Body.VISUALS_PATH,
 			AdditionComponent.ADDITION_CLASS: &"Sprite2D",
 			AdditionComponent.ADDITION_PROP: &"_sprite"
 		}
