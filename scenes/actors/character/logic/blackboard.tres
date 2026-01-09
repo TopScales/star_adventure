@@ -1,9 +1,0 @@
-[gd_resource type="BlackboardPlan" format=3 uid="uid://cuxashgsi5ggd"]
-
-[resource]
-resource_name = "Character Blackboad"
-var/speed/name = &"speed"
-var/speed/type = 3
-var/speed/value = 1.0
-var/speed/hint = 1
-var/speed/hint_string = "0.1,10,0.1"

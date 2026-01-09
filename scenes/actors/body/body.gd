@@ -1,51 +1,67 @@
 ##
-## A game element that can interact and modify the world.
+## An object that moves and has inertia.
 ##
-## An Agent contains an [Entity] that defines its capabilities and behavior
-## through [Component]s. Agents have a visual representation that can be seen in
-## the world. These elements have a more complex logic than Entities which is
-## managed by an [AgenController] which is a state machine. An Agent is
-## basically an entry point to its [Entity] and the logic that controls it.
+## Bodies have an [Entity] to add functionality and a [Driver] applies movement
+## to the body.
 ##
-@icon("res://assets/icons/classes/agent.svg")
-class_name Agent
+@icon("res://assets/icons/classes/body.svg")
+class_name Body
 extends Node2D
 
 signal despawned
 
 const ENTITY_PATH: String = "Entity"
+const DRIVER_PATH: String = "Driver"
 const VISUALS_PATH: String = "Visuals"
 const PERCEPTION_PATH: String = "Perception"
 
-@onready var entity: Entity = get_node(ENTITY_PATH)
+## The mass of the body.
+@export_range(0.01, 10.0, 0.01, "or_greater") var mass: float = 1.0
+## Whether the body should be freed when despwned.
+@export var persistent: bool = false
+
+@onready var _entity: Entity = get_node(ENTITY_PATH)
+@onready var _driver: Driver = get_node(ENTITY_PATH)
 
 # =============================================================
 # ========= Public Functions ==================================
 
-
 func despawn() -> void:
 	despawned.emit()
-	queue_free()
+
+	if persistent:
+		_entity.set_enabled(false)
+		stop()
+	else:
+		queue_free()
+
+
+func awake() -> void:
+	_entity.set_enabled(true)
+
+
+func stop() -> void:
+	_driver.stop()
 
 
 func add_component(component_scene: PackedScene) -> void:
-	entity.add_component(component_scene)
+	_entity.add_component(component_scene)
 
 
 func get_component(component: GDScript) -> Component:
-	return entity.get_component(component)
+	return _entity.get_component(component)
 
 
 func add_component_from_script(component_script: GDScript) -> void:
-	entity.add_component_from_script(component_script)
+	_entity.add_component_from_script(component_script)
 
 
 func has_component(component: GDScript) -> bool:
-	return entity.has_component(component)
+	return _entity.has_component(component)
 
 
 func remove_component(component_script: GDScript) -> void:
-	entity.remove_component(component_script)
+	_entity.remove_component(component_script)
 
 # =============================================================
 # ========= Callbacks =========================================

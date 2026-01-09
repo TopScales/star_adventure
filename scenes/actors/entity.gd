@@ -52,6 +52,15 @@ func remove_component(component_script: GDScript) -> void:
 		component.finalize()
 
 
+func set_enabled(enabled: bool) -> void:
+	for ichild in get_child_count():
+		var component: Component = get_child(ichild) as Component
+		if enabled:
+			component.enable()
+		else:
+			component.disable()
+
+
 func emit_notification(what: StringName, cargo: Variant = null) -> void:
 	notify.emit(what, cargo)
 
@@ -69,15 +78,15 @@ func _enter_tree() -> void:
 func _exit_tree() -> void:
 	for component_script in _components:
 		var component: Component = _components[component_script]
-		component.stop()
+		component.disable()
 	_components.clear()
-
 
 # =============================================================
 # ========= Virtual Methods ===================================
 
 # =============================================================
 # ========= Private Functions =================================
+
 
 func __add_component(component: Component) -> void:
 	if __component_fulfill_requirements(component):

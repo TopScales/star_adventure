@@ -15,13 +15,13 @@
 class_name Component
 extends Node
 
-enum Status {UNKOWN, RUNNING, DISABLED, FINALIZING}
+enum Status {NOT_READY, RUNNING, DISABLED, FINALIZING}
 
 ## Contains a list of required components. This should be set during
 ## initialization through [method Object._init].
 var required_components: Array[GDScript] = []
 
-var _status: Status = Status.UNKOWN
+var _status: Status = Status.NOT_READY
 
 # =============================================================
 # ========= Public Functions ==================================
@@ -35,7 +35,7 @@ func is_disabled() -> bool:
 ## Initializes and starts running the component. Should only be used by [Entity]
 ## script.
 func setup() -> void:
-	if _status != Status.UNKOWN:
+	if _status != Status.NOT_READY:
 		return
 
 	_setup_internal()

@@ -1,7 +1,7 @@
 ##
 @icon("res://assets/icons/classes/ship.svg")
 class_name Ship
-extends Agent
+extends Body
 
 # =============================================================
 # ========= Public Functions ==================================

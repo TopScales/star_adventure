@@ -1,11 +1,11 @@
 ##
-## Contains visual elements of the agent.
+## Contains visual elements of the body.
 ##
 ## All child elements should be added through an AdditionComponent.
 ##
 @tool
-@icon("res://assets/icons/classes/Visuals.svg")
-class_name AgentVisuals
+@icon("res://assets/icons/classes/visuals.svg")
+class_name Visuals
 extends AdditionsContainer
 
 #var _scale_map: Dictionary[Node3D, Vector3] = {}

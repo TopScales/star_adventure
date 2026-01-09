@@ -1,7 +1,7 @@
 ##
 @tool
 @icon("res://assets/icons/classes/perception.svg")
-class_name AgentPerception
+class_name Perception
 extends AdditionsContainer
 
 # =============================================================

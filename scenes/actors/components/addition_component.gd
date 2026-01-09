@@ -76,14 +76,17 @@ static func get_addition_owners_names(addition: Object, complain: bool = true) -
 				)
 			)
 		return Array([], TYPE_STRING_NAME, "", null)
+
 	var owners: Array[StringName] = addition.get_meta(
 		_OWNER_COMPONENTS_META, Array([], TYPE_STRING_NAME, "", null)
 	)
+
 	if owners.is_empty() and complain:
 		Log.error(
 			"Found empty list of owner components for addition %s." % Data.get_obj_name(addition),
 			_MODULE
 		)
+
 	return owners
 
 
@@ -278,6 +281,7 @@ func __remove_additions() -> void:
 			"Found empty list of owner components for addition %s while removing." % addition.name
 		)
 		components.erase(name)
+
 		if components.is_empty():
 			addition.get_parent().remove_child(addition)
 			addition.queue_free()
