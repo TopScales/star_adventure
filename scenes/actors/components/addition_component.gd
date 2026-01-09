@@ -208,13 +208,17 @@ func _get_property_list() -> Array[Dictionary]:
 				"usage": PROPERTY_USAGE_CATEGORY
 			})
 			var addition_props: Array[Dictionary] = Data.get_properties_info(addition, usage, filter_list, is_blacklist, core_level, script_level)
-			props.append_array(addition_props)
 
 			for prop in addition_props:
 				var prop_type: int = prop["type"]
+				var prop_usage: int = prop["usage"]
+				prop_usage &= ~PROPERTY_USAGE_STORAGE
+				prop["usage"] = prop_usage
 
 				if prop_type != TYPE_NIL:
 					_props_map[StringName(prop["name"])] = addition
+
+			props.append_array(addition_props)
 
 	return props
 

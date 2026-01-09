@@ -15,13 +15,15 @@ const DRIVER_PATH: String = "Driver"
 const VISUALS_PATH: String = "Visuals"
 const PERCEPTION_PATH: String = "Perception"
 
-## The mass of the body.
+## The mass of the body. Setting this value in the editor is not always a
+## reliable way of adjusting the mass, since it can be modified by the
+## [Component]s added to the Body.
 @export_range(0.01, 10.0, 0.01, "or_greater") var mass: float = 1.0
 ## Whether the body should be freed when despwned.
 @export var persistent: bool = false
 
-@onready var _entity: Entity = get_node(ENTITY_PATH)
-@onready var _driver: Driver = get_node(ENTITY_PATH)
+@onready var entity: Entity = get_node(ENTITY_PATH)
+@onready var driver: Driver = get_node(DRIVER_PATH)
 
 # =============================================================
 # ========= Public Functions ==================================
@@ -30,38 +32,38 @@ func despawn() -> void:
 	despawned.emit()
 
 	if persistent:
-		_entity.set_enabled(false)
+		entity.set_enabled(false)
 		stop()
 	else:
 		queue_free()
 
 
 func awake() -> void:
-	_entity.set_enabled(true)
+	entity.set_enabled(true)
 
 
 func stop() -> void:
-	_driver.stop()
+	driver.stop()
 
 
 func add_component(component_scene: PackedScene) -> void:
-	_entity.add_component(component_scene)
+	entity.add_component(component_scene)
 
 
 func get_component(component: GDScript) -> Component:
-	return _entity.get_component(component)
+	return entity.get_component(component)
 
 
 func add_component_from_script(component_script: GDScript) -> void:
-	_entity.add_component_from_script(component_script)
+	entity.add_component_from_script(component_script)
 
 
 func has_component(component: GDScript) -> bool:
-	return _entity.has_component(component)
+	return entity.has_component(component)
 
 
 func remove_component(component_script: GDScript) -> void:
-	_entity.remove_component(component_script)
+	entity.remove_component(component_script)
 
 # =============================================================
 # ========= Callbacks =========================================

@@ -5,21 +5,22 @@
 class_name ShipIntelligence
 extends Component
 
-signal target_position_changed(target: Vector2)
-
-const _TARGET_POSITION_UPDATE_TOLERANCE: float = 2.0
-const _TOL_SQRD: float = _TARGET_POSITION_UPDATE_TOLERANCE * _TARGET_POSITION_UPDATE_TOLERANCE
-
-## Target position with respect to the ship's position.
-var target_position: Vector2 = Vector2.ZERO:
+## Direction which the ship wants to move towards. Should always be normalized.
+@export var direction: Vector2 = Vector2i.UP:
 	set(value):
-		target_position = value
+		direction = value
+		__update_deferred()
 
-		if target_position.distance_squared_to(_prev_target) > _TOL_SQRD:
-			__notify_target_position_changed()
+## The desired applied strenght in terms of the maximum possible power for the
+## ship.
+@export_range(0.0, 1.0, 0.01) var strength: float = 0.0:
+	set(value):
+		strength = value
+		__update_deferred()
 
-var _prev_target: Vector2 = Vector2.ZERO
-#var _driver: ShipDriver
+var _dirty: bool = false
+
+@onready var _ship: Ship = owner
 
 # =============================================================
 # ========= Public Functions ==================================
@@ -27,28 +28,22 @@ var _prev_target: Vector2 = Vector2.ZERO
 # =============================================================
 # ========= Callbacks =========================================
 
-
-#func _init() -> void:
-	#required_components = [ShipDriver]
-#
-#
-#func _physics_process(delta: float) -> void:
-	#pass
-
 # =============================================================
 # ========= Virtual Methods ===================================
-
-
-#func _register_required_component(required: Component) -> void:
-	#if required is ShipDriver:
-		#_driver = required
 
 # =============================================================
 # ========= Private Functions =================================
 
-func __notify_target_position_changed() -> void:
-	target_position_changed.emit(target_position)
-	_prev_target = target_position
+
+func __update_force() -> void:
+	_ship.driver.force = direction * strength * _ship.maximum_thrust
+	_dirty = false
+
+
+func __update_deferred() -> void:
+	if not _dirty:
+		__update_force.call_deferred()
+		_dirty = true
 
 # =============================================================
 # ========= Signal Callbacks ==================================

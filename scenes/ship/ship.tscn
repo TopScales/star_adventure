@@ -8,6 +8,7 @@
 
 [node name="Ship" instance=ExtResource("1_0gtnv")]
 script = ExtResource("2_u5c2e")
+maximum_thrust = 0.0
 
 [node name="Intelligence" type="Node" parent="Entity" index="0"]
 script = ExtResource("6_7nsyl")
