@@ -12,9 +12,11 @@ var _sprite: Sprite2D
 # =============================================================
 # ========= Callbacks =========================================
 
+
 func _init() -> void:
 	_additions = {
-		&"HullSprite": {
+		&"HullSprite":
+		{
 			AdditionComponent.ADDITION_NODE: _sprite,
 			AdditionComponent.ADDITION_PARENT: Body.VISUALS_PATH,
 			AdditionComponent.ADDITION_CLASS: &"Sprite2D",

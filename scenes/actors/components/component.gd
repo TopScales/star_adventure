@@ -15,7 +15,7 @@
 class_name Component
 extends Node
 
-enum Status {NOT_READY, RUNNING, DISABLED, FINALIZING}
+enum Status { NOT_READY, RUNNING, DISABLED, FINALIZING }
 
 ## Contains a list of required components. This should be set during
 ## initialization through [method Object._init].
@@ -25,6 +25,7 @@ var _status: Status = Status.NOT_READY
 
 # =============================================================
 # ========= Public Functions ==================================
+
 
 ## Returns [code]true[/code] if the module is disabled and [code]false[/code]
 ## otherwise.

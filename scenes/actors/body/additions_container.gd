@@ -15,6 +15,7 @@ func _enter_tree() -> void:
 	for ichild in get_child_count():
 		__register_addition(get_child(ichild))
 
+
 # =============================================================
 # ========= Virtual Methods ===================================
 

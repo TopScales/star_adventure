@@ -28,6 +28,7 @@ const PERCEPTION_PATH: String = "Perception"
 # =============================================================
 # ========= Public Functions ==================================
 
+
 func despawn() -> void:
 	despawned.emit()
 

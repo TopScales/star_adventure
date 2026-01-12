@@ -115,6 +115,7 @@ func register_addition(addition: Node) -> bool:
 
 	return false
 
+
 # =============================================================
 # ========= Callbacks =========================================
 
@@ -133,7 +134,12 @@ func _enter_tree() -> void:
 
 
 func _exit_tree() -> void:
-	if Engine.is_editor_hint() and owner and is_instance_valid(owner) and _status != Status.NOT_READY:
+	if (
+		Engine.is_editor_hint()
+		and owner
+		and is_instance_valid(owner)
+		and _status != Status.NOT_READY
+	):
 		var ids: PackedInt64Array = PackedInt64Array()
 		Err.try_resize(ids.resize(_additions.size()), _MODULE)
 		var index: int = 0
@@ -198,16 +204,22 @@ func _get_property_list() -> Array[Dictionary]:
 					filter_list = white_list
 					is_blacklist = false
 			_:
-				Log.error("Incorrect addition properties display information for addition %s" % addition_name, _MODULE)
+				Log.error(
+					(
+						"Incorrect addition properties display information for addition %s"
+						% addition_name
+					),
+					_MODULE
+				)
 				show = false
 
 		if show:
-			props.push_back({
-				"name": addition_name,
-				"type": TYPE_NIL,
-				"usage": PROPERTY_USAGE_CATEGORY
-			})
-			var addition_props: Array[Dictionary] = Data.get_properties_info(addition, usage, filter_list, is_blacklist, core_level, script_level)
+			props.push_back(
+				{"name": addition_name, "type": TYPE_NIL, "usage": PROPERTY_USAGE_CATEGORY}
+			)
+			var addition_props: Array[Dictionary] = Data.get_properties_info(
+				addition, usage, filter_list, is_blacklist, core_level, script_level
+			)
 
 			for prop in addition_props:
 				var prop_type: int = prop["type"]
@@ -221,6 +233,7 @@ func _get_property_list() -> Array[Dictionary]:
 			props.append_array(addition_props)
 
 	return props
+
 
 # =============================================================
 # ========= Virtual Methods ===================================
@@ -308,6 +321,7 @@ func __add_addition(addition_name: String) -> void:
 			addition_info[ADDITION_NODE] = addition
 			set(addition_info[ADDITION_PROP], addition)
 			__add(addition, addition_parent)
+
 
 # =============================================================
 # ========= Signal Callbacks ==================================

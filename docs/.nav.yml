@@ -6,8 +6,8 @@ nav:
     - project/level.md
   - Game Design Document:
     - gdd/intro.md
-    - gdd/controls.md
     - gdd/mechanics.md
+    - gdd/controls.md
     - gdd/enemies.md
     - gdd/progression.md
     - gdd/visuals.md

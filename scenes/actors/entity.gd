@@ -64,6 +64,7 @@ func set_enabled(enabled: bool) -> void:
 func emit_notification(what: StringName, cargo: Variant = null) -> void:
 	notify.emit(what, cargo)
 
+
 # =============================================================
 # ========= Callbacks =========================================
 
@@ -80,6 +81,7 @@ func _exit_tree() -> void:
 		var component: Component = _components[component_script]
 		component.disable()
 	_components.clear()
+
 
 # =============================================================
 # ========= Virtual Methods ===================================
