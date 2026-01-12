@@ -1,7 +1,16 @@
 ##
 @icon("res://assets/icons/classes/ship.svg")
 class_name Ship
-extends Agent
+extends Body
+
+## The maximum thrust force that the ship can apply. Setting this value in the
+## editor is not a reliable way of adjusting the thrust, since it should be
+## modified by the [Component]s added to the Ship.
+@export_range(0.0, 100.0, 0.01, "or_greater") var maximum_thrust: float = 0.0
+
+@export_group("Shape Factor", "shape_factor_")
+@export_range(0.001, 0.1, 0.001) var shape_factor_x: float = 0.05
+@export_range(0.001, 0.1, 0.001) var shape_factor_y: float = 0.05
 
 # =============================================================
 # ========= Public Functions ==================================
@@ -17,18 +26,3 @@ extends Agent
 
 # =============================================================
 # ========= Signal Callbacks ==================================
-
-#func _on_child_entered_tree(node:  Node) -> void:
-#var addition_owners: PackedStringArray = AdditionComponent.get_addition_owners_names(node)
-#var components: Node = $"../Entity"
-#for component_name in addition_owners:
-#var component: AdditionComponent = components.get_node(component_name)
-#component.add_on_entered_tree(node)
-##Err.conn(node.child_entered_tree, _on_child_entered_tree)
-##Err.conn(node.child_exiting_tree, _on_child_exiting_tree)
-#
-#
-#func _on_child_exiting_tree(_node:  Node) -> void:
-#pass
-#node.child_entered_tree.disconnect(_on_child_entered_tree)
-#node.child_exiting_tree.disconnect(_on_child_exiting_tree)

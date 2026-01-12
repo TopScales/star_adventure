@@ -52,6 +52,15 @@ func remove_component(component_script: GDScript) -> void:
 		component.finalize()
 
 
+func set_enabled(enabled: bool) -> void:
+	for ichild in get_child_count():
+		var component: Component = get_child(ichild) as Component
+		if enabled:
+			component.enable()
+		else:
+			component.disable()
+
+
 func emit_notification(what: StringName, cargo: Variant = null) -> void:
 	notify.emit(what, cargo)
 
@@ -70,7 +79,7 @@ func _enter_tree() -> void:
 func _exit_tree() -> void:
 	for component_script in _components:
 		var component: Component = _components[component_script]
-		component.stop()
+		component.disable()
 	_components.clear()
 
 
@@ -79,11 +88,6 @@ func _exit_tree() -> void:
 
 # =============================================================
 # ========= Private Functions =================================
-
-#func __initialize() -> void:
-#if not is_inside_tree():
-#return
-#_initialized = true
 
 
 func __add_component(component: Component) -> void:
@@ -106,10 +110,7 @@ func __register_components() -> void:
 		var component: Component = get_child(i) as Component
 		assert(
 			__component_fulfill_requirements(component),
-			(
-				"Component %s doesn't fulfill the requirements to be added to entity %s."
-				% [component.name, name]
-			)
+			"Component %s doesn't fulfill the requirements to be added to entity %s." % [component.name, name]
 		)
 		var component_script: GDScript = component.get_script()
 		if OS.is_debug_build() and _components.has(component_script):

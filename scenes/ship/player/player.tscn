@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://1f8auvl8jjg2"]
+
+[ext_resource type="PackedScene" uid="uid://bl408egjlbwcb" path="res://scenes/ship/ship.tscn" id="1_lmxla"]
+[ext_resource type="Script" uid="uid://b8d8cyjsxn6jy" path="res://scenes/ship/player/player_ship_intelligence.gd" id="2_s57fl"]
+[ext_resource type="Texture2D" uid="uid://c5cek0raniv8p" path="res://assets/textures/ship/ship.png" id="3_gs0tx"]
+[ext_resource type="Texture2D" uid="uid://b8atii3gykrr3" path="res://assets/textures/ship/ship_n.png" id="4_ks0sv"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_brse3"]
+diffuse_texture = ExtResource("3_gs0tx")
+normal_texture = ExtResource("4_ks0sv")
+specular_shininess = 0.44
+
+[node name="Player" instance=ExtResource("1_lmxla")]
+shape_factor_x = 0.05
+shape_factor_y = 0.05
+
+[node name="Intelligence" parent="Entity" index="0"]
+script = ExtResource("2_s57fl")
+direction = Vector2(0, 0)
+
+[node name="HullSprite" parent="Visuals" index="0"]
+texture = SubResource("CanvasTexture_brse3")

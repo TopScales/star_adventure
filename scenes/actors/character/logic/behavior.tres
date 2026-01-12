@@ -1,9 +1,0 @@
-[gd_resource type="BehaviorTree" load_steps=3 format=3 uid="uid://bgn83codjs2yi"]
-
-[ext_resource type="BlackboardPlan" uid="uid://cuxashgsi5ggd" path="res://scenes/actors/character/logic/blackboard.tres" id="1_doomi"]
-
-[sub_resource type="BTSelector" id="BTSelector_doomi"]
-
-[resource]
-blackboard_plan = ExtResource("1_doomi")
-root_task = SubResource("BTSelector_doomi")

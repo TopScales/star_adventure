@@ -26,3 +26,6 @@ __pycache__/
 ~*.dll
 
 tmp/
+
+# Since export presets use custom build, each machine can have a different path to templates
+/export_presets.cfg

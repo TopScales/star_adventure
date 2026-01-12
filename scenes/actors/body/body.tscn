@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1yy4wjdd7ggu"]
+
+[ext_resource type="Script" uid="uid://dsfclw0l6cduh" path="res://scenes/actors/body/body.gd" id="1_yif2w"]
+[ext_resource type="Script" uid="uid://nbit734rk664" path="res://scenes/actors/entity.gd" id="2_rvose"]
+[ext_resource type="Script" uid="uid://bqit4of8r2b85" path="res://scenes/actors/body/driver.gd" id="3_gu12g"]
+[ext_resource type="Script" uid="uid://84y1evmr3mm6" path="res://scenes/actors/body/visuals.gd" id="4_r0v7g"]
+[ext_resource type="Script" uid="uid://dt1sbwdla1tui" path="res://scenes/actors/body/perception.gd" id="5_u6i7u"]
+
+[node name="Body" type="Node2D"]
+script = ExtResource("1_yif2w")
+
+[node name="Entity" type="Node" parent="."]
+script = ExtResource("2_rvose")
+metadata/_custom_type_script = "uid://nbit734rk664"
+
+[node name="Driver" type="Node" parent="."]
+script = ExtResource("3_gu12g")
+metadata/_custom_type_script = "uid://bqit4of8r2b85"
+
+[node name="Visuals" type="Node2D" parent="."]
+script = ExtResource("4_r0v7g")
+metadata/_custom_type_script = "uid://84y1evmr3mm6"
+
+[node name="Perception" type="Node2D" parent="."]
+script = ExtResource("5_u6i7u")
+metadata/_custom_type_script = "uid://dt1sbwdla1tui"
