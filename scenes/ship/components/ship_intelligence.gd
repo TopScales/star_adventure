@@ -5,7 +5,7 @@
 class_name ShipIntelligence
 extends Component
 
-## Direction which the ship wants to move towards. Should always be normalized.
+## Direction which the ship wants to move towards.
 @export var direction: Vector2 = Vector2i.UP:
 	set(value):
 		direction = value
@@ -21,6 +21,8 @@ extends Component
 var _dirty: bool = false
 
 @onready var _ship: Ship = owner
+
+# TODO: Modify direction if colliding with other objects.
 
 # =============================================================
 # ========= Public Functions ==================================
@@ -41,7 +43,7 @@ func __update_force() -> void:
 
 
 func __update_deferred() -> void:
-	if not _dirty:
+	if not Engine.is_editor_hint() and not _dirty:
 		__update_force.call_deferred()
 		_dirty = true
 

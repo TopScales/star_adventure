@@ -10,13 +10,20 @@ const STATUS_NOT_READY: int = 0
 const STATUS_IDLE: int = 1
 const STATUS_MOVING: int = 2
 
+const MINIMUM_VELOCITY_FORCE_FRACTION: float = 0.05
+const FORCE_FRACTION_SQUARED: float = MINIMUM_VELOCITY_FORCE_FRACTION * MINIMUM_VELOCITY_FORCE_FRACTION
+
 @export var initial_velocity: Vector2
 
 var force: Vector2 = Vector2.ZERO:
 	set(value):
 		force = value
+		var is_force_nonzero: bool = not force.is_zero_approx()
 
-		if not is_physics_processing() and not force.is_zero_approx():
+		if is_force_nonzero and _velocity.length_squared() < FORCE_FRACTION_SQUARED * force.length_squared():
+			_velocity = MINIMUM_VELOCITY_FORCE_FRACTION * force
+
+		if _status == STATUS_IDLE and is_force_nonzero:
 			set_physics_process(true)
 			_status = STATUS_MOVING
 			moving_changed.emit(true)
@@ -53,7 +60,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var acceleration: Vector2 = force / _body.mass
+	var total_force: Vector2 = _integrate_forces()
+	var acceleration: Vector2 = total_force / _body.mass
 	var new_velocity: Vector2 = _velocity + acceleration * delta
 	_body.position = _body.position + new_velocity * delta
 	_velocity = new_velocity
@@ -66,6 +74,10 @@ func _physics_process(delta: float) -> void:
 
 # =============================================================
 # ========= Virtual Methods ===================================
+
+
+func _integrate_forces() -> Vector2:
+	return force
 
 # =============================================================
 # ========= Private Functions =================================

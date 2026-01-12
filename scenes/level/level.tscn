@@ -1,8 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://c06yl2p1guy5r"]
+[gd_scene load_steps=6 format=3 uid="uid://c06yl2p1guy5r"]
 
-[ext_resource type="Texture2D" uid="uid://0psot6hjx1dw" path="res://assets/icons/system/icon.svg" id="1_h3e3j"]
+[ext_resource type="PackedScene" uid="uid://1f8auvl8jjg2" path="res://scenes/ship/player/player.tscn" id="1_h3e3j"]
+[ext_resource type="PackedScene" uid="uid://b57ta72tpfeaf" path="res://scenes/level/gui/gui.tscn" id="1_nbgty"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nbgty"]
+load_path = "res://.godot/imported/ship.png-45cd51b17383c09d856b02f9a56cd9be.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i166f"]
+load_path = "res://.godot/imported/ship_n.png-488be3cb4e667e5355e592d761b2ef1a.ctex"
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qkmgm"]
+diffuse_texture = SubResource("CompressedTexture2D_nbgty")
+normal_texture = SubResource("CompressedTexture2D_i166f")
 
 [node name="Level" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_h3e3j")
+[node name="GUILayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="GUILayer" instance=ExtResource("1_nbgty")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+height = 0.2
+
+[node name="Player" parent="." instance=ExtResource("1_h3e3j")]
+position = Vector2(524, 1713)
+maximum_thrust = 800.0
+shape_factor_x = 0.02
+shape_factor_y = 0.02
+
+[node name="HullSprite" parent="Player/Visuals" index="0"]
+texture = SubResource("CanvasTexture_qkmgm")
+
+[editable path="Player"]

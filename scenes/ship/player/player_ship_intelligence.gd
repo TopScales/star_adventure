@@ -1,22 +1,38 @@
 ##
-@icon("res://assets/icons/classes/ship.svg")
-class_name Ship
-extends Body
+##
+@tool
+class_name PlayerShipIntelligence
+extends ShipIntelligence
 
-## The maximum thrust force that the ship can apply. Setting this value in the
-## editor is not a reliable way of adjusting the thrust, since it should be
-## modified by the [Component]s added to the Ship.
-@export_range(0.0, 100.0, 0.01, "or_greater") var maximum_thrust: float = 0.0
-
-@export_group("Shape Factor", "shape_factor_")
-@export_range(0.001, 0.1, 0.001) var shape_factor_x: float = 0.05
-@export_range(0.001, 0.1, 0.001) var shape_factor_y: float = 0.05
+var _moving: bool = false
 
 # =============================================================
 # ========= Public Functions ==================================
 
 # =============================================================
 # ========= Callbacks =========================================
+
+func _ready() -> void:
+	set_process(false)
+
+
+func _process(_delta: float) -> void:
+	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+
+	if direction.is_zero_approx():
+		strength = 0.0
+		_moving = false
+		set_process(false)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if Engine.is_editor_hint():
+		return
+
+	if not _moving and event.is_action("move_up") or event.is_action("move_down") \
+			or event.is_action("move_left") or event.is_action("move_right"):
+		strength = 1.0
+		set_process(true)
 
 # =============================================================
 # ========= Virtual Methods ===================================

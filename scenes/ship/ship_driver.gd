@@ -1,16 +1,8 @@
 ##
-@icon("res://assets/icons/classes/ship.svg")
-class_name Ship
-extends Body
+class_name ShipDriver
+extends Driver
 
-## The maximum thrust force that the ship can apply. Setting this value in the
-## editor is not a reliable way of adjusting the thrust, since it should be
-## modified by the [Component]s added to the Ship.
-@export_range(0.0, 100.0, 0.01, "or_greater") var maximum_thrust: float = 0.0
-
-@export_group("Shape Factor", "shape_factor_")
-@export_range(0.001, 0.1, 0.001) var shape_factor_x: float = 0.05
-@export_range(0.001, 0.1, 0.001) var shape_factor_y: float = 0.05
+@onready var _ship: Ship = owner
 
 # =============================================================
 # ========= Public Functions ==================================
@@ -20,6 +12,12 @@ extends Body
 
 # =============================================================
 # ========= Virtual Methods ===================================
+
+func _integrate_forces() -> Vector2:
+	var fr_force: float = 0.5 * _velocity.length_squared()
+	var shape_factor: Vector2 = Vector2(_ship.shape_factor_x, _ship.shape_factor_y)
+	var friction: Vector2 = -fr_force * _velocity.normalized() * shape_factor
+	return force + friction
 
 # =============================================================
 # ========= Private Functions =================================

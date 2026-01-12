@@ -8,8 +8,7 @@
             "type": "shell",
             "command": "scons",
             "args": [
-                "-j24",
-                "custom_modules=%EC_MODULES%"
+                "-j24"
             ],
             "group": "build",
             "presentation": {
@@ -18,10 +17,7 @@
             },
             "problemMatcher": "$msCompile",
             "options": {
-                "cwd": "${workspaceFolder}/godot/source",
-                "env": {
-                    "EC_MODULES": "${workspaceFolder}/godot/modules"
-                }
+                "cwd": "${workspaceFolder}/godot/source"
             }
         },
         {
@@ -30,7 +26,6 @@
             "command": "scons",
             "args": [
                 "-j24",
-                "custom_modules=%EC_MODULES%",
                 // enable for debugging with breakpoints
                 "dev_build=yes"
             ],
@@ -41,11 +36,176 @@
             },
             "problemMatcher": "$msCompile",
             "options": {
+                "cwd": "${workspaceFolder}/godot/source"
+            }
+        },
+        {
+            "label": "Build Android (ARM32 Release)",
+            "type": "shell",
+            "command": "scons",
+            "args": [
+                "-j24",
+                "platform=android",
+                "target=template_release",
+                "arch=arm32"
+            ],
+            "group": "build",
+            "presentation": {
+                // Reveal the output only if unrecognized errors occur.
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile",
+            "options": {
                 "cwd": "${workspaceFolder}/godot/source",
                 "env": {
-                    "EC_MODULES": "${workspaceFolder}/godot/modules"
+                    "ANDROID_HOME": "C:\\cmdline-tools"
                 }
             }
+        },
+        {
+            "label": "Build Android (ARM64 Release)",
+            "type": "shell",
+            "command": "scons",
+            "args": [
+                "-j24",
+                "platform=android",
+                "target=template_release",
+                "arch=arm64",
+                "generate_android_binaries=yes"
+            ],
+            "group": "build",
+            "presentation": {
+                // Reveal the output only if unrecognized errors occur.
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/godot/source",
+                "env": {
+                    "ANDROID_HOME": "C:\\cmdline-tools"
+                }
+            }
+        },
+        {
+            "label": "Build Android (ARM32 Debug)",
+            "type": "shell",
+            "command": "scons",
+            "args": [
+                "-j24",
+                "platform=android",
+                "target=template_debug",
+                "arch=arm32"
+            ],
+            "group": "build",
+            "presentation": {
+                // Reveal the output only if unrecognized errors occur.
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/godot/source",
+                "env": {
+                    "ANDROID_HOME": "C:\\cmdline-tools"
+                }
+            }
+        },
+        {
+            "label": "Build Android (ARM64 Debug)",
+            "type": "shell",
+            "command": "scons",
+            "args": [
+                "-j24",
+                "platform=android",
+                "target=template_debug",
+                "arch=arm64",
+                "generate_android_binaries=yes"
+            ],
+            "group": "build",
+            "presentation": {
+                // Reveal the output only if unrecognized errors occur.
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/godot/source",
+                "env": {
+                    "ANDROID_HOME": "C:\\cmdline-tools"
+                }
+            }
+        },
+        {
+            "label": "Build Android (ARM32 Dev)",
+            "type": "shell",
+            "command": "scons",
+            "args": [
+                "-j24",
+                "platform=android",
+                "target=template_debug",
+                "arch=arm32",
+                "dev_build=yes",
+                "debug_symbols=yes"
+            ],
+            "group": "build",
+            "presentation": {
+                // Reveal the output only if unrecognized errors occur.
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/godot/source",
+                "env": {
+                    "ANDROID_HOME": "C:\\cmdline-tools"
+                }
+            }
+        },
+        {
+            "label": "Build Android (ARM64 Dev)",
+            "type": "shell",
+            "command": "scons",
+            "args": [
+                "-j24",
+                "platform=android",
+                "target=template_debug",
+                "arch=arm64",
+                "dev_build=yes",
+                "debug_symbols=yes",
+                "generate_android_binaries=yes"
+            ],
+            "group": "build",
+            "presentation": {
+                // Reveal the output only if unrecognized errors occur.
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/godot/source",
+                "env": {
+                    "ANDROID_HOME": "C:\\cmdline-tools"
+                }
+            }
+        },
+        {
+            "label": "Build Android (All)",
+            "type": "shell",
+            "command": "echo 'All tasks finished'",
+            "problemMatcher": [],
+            "dependsOn": [
+                "Build Android (ARM32 Release)",
+                "Build Android (ARM64 Release)",
+                "Build Android (ARM32 Debug)",
+                "Build Android (ARM64 Debug)",
+                "Build Android (ARM32 Dev)",
+                "Build Android (ARM64 Dev)"
+            ],
+            "dependsOrder": "sequence",
+            "group": "build"
+        },
+        {
+            "label": "Clean Android",
+            "type": "shell",
+            "command": "${workspaceFolder}/platform/android/java/gradlew clean",
+            "problemMatcher": [],
+            "group": "build"
         }
     ]
 }
