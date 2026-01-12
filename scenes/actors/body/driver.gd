@@ -11,9 +11,7 @@ const STATUS_IDLE: int = 1
 const STATUS_MOVING: int = 2
 
 const MINIMUM_VELOCITY_FORCE_FRACTION: float = 0.05
-const FORCE_FRACTION_SQUARED: float = (
-	MINIMUM_VELOCITY_FORCE_FRACTION * MINIMUM_VELOCITY_FORCE_FRACTION
-)
+const FORCE_FRACTION_SQUARED: float = MINIMUM_VELOCITY_FORCE_FRACTION * MINIMUM_VELOCITY_FORCE_FRACTION
 
 @export var initial_velocity: Vector2
 
@@ -22,10 +20,7 @@ var force: Vector2 = Vector2.ZERO:
 		force = value
 		var is_force_nonzero: bool = not force.is_zero_approx()
 
-		if (
-			is_force_nonzero
-			and _velocity.length_squared() < FORCE_FRACTION_SQUARED * force.length_squared()
-		):
+		if is_force_nonzero and _velocity.length_squared() < FORCE_FRACTION_SQUARED * force.length_squared():
 			_velocity = MINIMUM_VELOCITY_FORCE_FRACTION * force
 
 		if _status == STATUS_IDLE and is_force_nonzero:

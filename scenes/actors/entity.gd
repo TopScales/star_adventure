@@ -110,10 +110,7 @@ func __register_components() -> void:
 		var component: Component = get_child(i) as Component
 		assert(
 			__component_fulfill_requirements(component),
-			(
-				"Component %s doesn't fulfill the requirements to be added to entity %s."
-				% [component.name, name]
-			)
+			"Component %s doesn't fulfill the requirements to be added to entity %s." % [component.name, name]
 		)
 		var component_script: GDScript = component.get_script()
 		if OS.is_debug_build() and _components.has(component_script):

@@ -44,9 +44,7 @@ static func inc_fix(input_fix: String) -> String:
 		var ascii := input_fix.to_ascii_buffer()
 		assert(ascii.size() == 1, "Version fix field should be a single lowercase letter.")
 		var value := ascii[0]
-		assert(
-			value >= 97 and value <= 122, "Version fix field should be a single lowercase letter"
-		)
+		assert(value >= 97 and value <= 122, "Version fix field should be a single lowercase letter")
 		assert(value != 122, "Maximum fix letter reached.")
 		ascii[0] = value + 1
 		return ascii.get_string_from_ascii()

@@ -32,18 +32,14 @@ func get_properties_info(
 			if script:
 				var all_script_props: Array[Dictionary] = script.get_script_property_list()
 				var script_props: Array[Dictionary] = []
-				__select_properties(
-					all_script_props, usage, filter_list, use_whitelist, use_blacklist, script_props
-				)
+				__select_properties(all_script_props, usage, filter_list, use_whitelist, use_blacklist, script_props)
 				script = script.get_base_script()
 				var level: int = 1
 				var assigned: bool = false
 
 				while script:
 					if level >= script_levels:
-						var parent_script_props: Array[Dictionary] = (
-							script.get_script_property_list()
-						)
+						var parent_script_props: Array[Dictionary] = script.get_script_property_list()
 						var selected_props: PackedInt32Array = []
 
 						for iprop in script_props.size():
@@ -83,9 +79,7 @@ func get_properties_info(
 			var obj_class: StringName = obj.get_class()
 
 			for i in core_levels:
-				var class_props: Array[Dictionary] = ClassDB.class_get_property_list(
-					obj_class, true
-				)
+				var class_props: Array[Dictionary] = ClassDB.class_get_property_list(obj_class, true)
 				props.append_array(class_props)
 				obj_class = ClassDB.get_parent_class(obj_class)
 
@@ -126,10 +120,7 @@ func __select_properties(
 		if usage != IGNORE_USAGE and not (prop["usage"] as int) & usage:
 			continue
 
-		if (
-			(not use_whitelist or use_whitelist and prop_name in filter)
-			and not (use_blacklist and prop_name in filter)
-		):
+		if (not use_whitelist or use_whitelist and prop_name in filter) and not (use_blacklist and prop_name in filter):
 			props_out.push_back(prop)
 
 # =============================================================

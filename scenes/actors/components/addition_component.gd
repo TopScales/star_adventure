@@ -69,23 +69,13 @@ var _prev_name: StringName = &""
 static func get_addition_owners_names(addition: Object, complain: bool = true) -> Array[StringName]:
 	if not addition.has_meta(_OWNER_COMPONENTS_META):
 		if complain:
-			printerr(
-				(
-					"Owner components were not set on component addition %s."
-					% Data.get_obj_name(addition)
-				)
-			)
+			printerr("Owner components were not set on component addition %s." % Data.get_obj_name(addition))
 		return Array([], TYPE_STRING_NAME, "", null)
 
-	var owners: Array[StringName] = addition.get_meta(
-		_OWNER_COMPONENTS_META, Array([], TYPE_STRING_NAME, "", null)
-	)
+	var owners: Array[StringName] = addition.get_meta(_OWNER_COMPONENTS_META, Array([], TYPE_STRING_NAME, "", null))
 
 	if owners.is_empty() and complain:
-		Log.error(
-			"Found empty list of owner components for addition %s." % Data.get_obj_name(addition),
-			_MODULE
-		)
+		Log.error("Found empty list of owner components for addition %s." % Data.get_obj_name(addition), _MODULE)
 
 	return owners
 
@@ -134,12 +124,7 @@ func _enter_tree() -> void:
 
 
 func _exit_tree() -> void:
-	if (
-		Engine.is_editor_hint()
-		and owner
-		and is_instance_valid(owner)
-		and _status != Status.NOT_READY
-	):
+	if Engine.is_editor_hint() and owner and is_instance_valid(owner) and _status != Status.NOT_READY:
 		var ids: PackedInt64Array = PackedInt64Array()
 		Err.try_resize(ids.resize(_additions.size()), _MODULE)
 		var index: int = 0
@@ -204,19 +189,11 @@ func _get_property_list() -> Array[Dictionary]:
 					filter_list = white_list
 					is_blacklist = false
 			_:
-				Log.error(
-					(
-						"Incorrect addition properties display information for addition %s"
-						% addition_name
-					),
-					_MODULE
-				)
+				Log.error("Incorrect addition properties display information for addition %s" % addition_name, _MODULE)
 				show = false
 
 		if show:
-			props.push_back(
-				{"name": addition_name, "type": TYPE_NIL, "usage": PROPERTY_USAGE_CATEGORY}
-			)
+			props.push_back({"name": addition_name, "type": TYPE_NIL, "usage": PROPERTY_USAGE_CATEGORY})
 			var addition_props: Array[Dictionary] = Data.get_properties_info(
 				addition, usage, filter_list, is_blacklist, core_level, script_level
 			)
@@ -252,9 +229,7 @@ func _finalize_internal() -> void:
 # ========= Private Functions =================================
 
 
-static func __remove_additions_in_editor(
-	owner_id: int, owner_name: StringName, instances: PackedInt64Array
-) -> void:
+static func __remove_additions_in_editor(owner_id: int, owner_name: StringName, instances: PackedInt64Array) -> void:
 	if is_instance_id_valid(owner_id):
 		var owner_component: Node = instance_from_id(owner_id)
 		if owner_component.is_inside_tree():
@@ -264,9 +239,7 @@ static func __remove_additions_in_editor(
 		if is_instance_id_valid(id):
 			var addition: Node = instance_from_id(id)
 			if addition.is_inside_tree():
-				var components: Array[StringName] = AdditionComponent.get_addition_owners_names(
-					addition
-				)
+				var components: Array[StringName] = AdditionComponent.get_addition_owners_names(addition)
 				components.erase(owner_name)
 				if components.is_empty():
 					var parent: Node = addition.get_parent()
