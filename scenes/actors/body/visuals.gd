@@ -21,7 +21,7 @@ extends AdditionsContainer
 #return node.get_meta(&"fixed_size", false)
 
 # =============================================================
-# ========= Callbacks =========================================
+# ========= Built-in Functions ================================
 
 #func _ready() -> void:
 #set_notify_transform(true)

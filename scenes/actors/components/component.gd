@@ -82,7 +82,7 @@ func register_required_component(required: Component) -> void:
 
 
 # =============================================================
-# ========= Callbacks =========================================
+# ========= Built-in Functions ================================
 
 
 func _ready() -> void:

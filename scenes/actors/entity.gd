@@ -66,7 +66,7 @@ func emit_notification(what: StringName, cargo: Variant = null) -> void:
 
 
 # =============================================================
-# ========= Callbacks =========================================
+# ========= Built-in Functions ================================
 
 
 func _enter_tree() -> void:
