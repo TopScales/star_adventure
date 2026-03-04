@@ -4,3 +4,6 @@
 [submodule "godot/source"]
 	path = godot/source
 	url = git@github.com:TopScales/godot.git
+[submodule "addons/true_data"]
+	path = addons/true_data
+	url = git@github.com:TopScales/true_data.git

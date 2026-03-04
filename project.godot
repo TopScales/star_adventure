@@ -22,14 +22,18 @@ config/icon="res://assets/icons/system/icon.svg"
 
 [autoload]
 
-Log="*res://addons/logerr/autoload/logger.gd"
-Err="*res://addons/logerr/autoload/err.gd"
-Benchmark="*res://addons/logerr/autoload/benchmark.gd"
+Err="*uid://q3kshlvkh7cb"
+Benchmark="*uid://10n5kfm55fea"
 Game="*res://scenes/game/game.tscn"
-Data="*res://scenes/game/data.gd"
+Data="*uid://bt380fpgt5psr"
 
 [debug]
 
+file_logging/enable_file_logging.pc=false
+gdscript/warnings/directory_rules={
+"res://addons": 0,
+"res://addons/true_data": 1
+}
 gdscript/warnings/return_value_discarded=1
 
 [display]
@@ -44,7 +48,7 @@ window/handheld/orientation=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gut/plugin.cfg", "res://addons/logerr/plugin.cfg")
+enabled=PackedStringArray("res://addons/gut/plugin.cfg", "res://addons/logerr/plugin.cfg", "res://addons/true_data/plugin.cfg")
 
 [file_customization]
 

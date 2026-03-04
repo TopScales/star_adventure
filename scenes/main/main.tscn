@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cckt7jhjc3pfw"]
+[gd_scene format=3 uid="uid://cckt7jhjc3pfw"]
 
 [ext_resource type="Texture2D" uid="uid://bl7m75lus72j3" path="res://assets/logo/logo.png" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://bkewurbq3r7kj" path="res://scenes/main/main.gd" id="1_iuonh"]
 
-[node name="Main" type="Control"]
+[node name="Main" type="Control" unique_id=1400143304]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_iuonh")
 
-[node name="Logo" type="TextureRect" parent="."]
+[node name="Logo" type="TextureRect" parent="." unique_id=2020214456]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -27,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_hyk8p")
 
-[node name="ButtonsBox" type="VBoxContainer" parent="."]
+[node name="ButtonsBox" type="VBoxContainer" parent="." unique_id=468879852]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 1
 anchors_preset = 2
@@ -40,7 +40,7 @@ offset_bottom = -280.0
 grow_vertical = 0
 theme_override_constants/separation = 12
 
-[node name="Continue" type="Button" parent="ButtonsBox"]
+[node name="Continue" type="Button" parent="ButtonsBox" unique_id=1268494609]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
@@ -49,13 +49,13 @@ theme_type_variation = &"AltButton"
 disabled = true
 text = "Continue"
 
-[node name="NewGame" type="Button" parent="ButtonsBox"]
+[node name="NewGame" type="Button" parent="ButtonsBox" unique_id=1361634583]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "New Game"
 
-[node name="Load" type="Button" parent="ButtonsBox"]
+[node name="Load" type="Button" parent="ButtonsBox" unique_id=1884974201]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
@@ -63,23 +63,23 @@ size_flags_horizontal = 3
 disabled = true
 text = "Load"
 
-[node name="Options" type="Button" parent="ButtonsBox"]
+[node name="Options" type="Button" parent="ButtonsBox" unique_id=1013528510]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Options"
 
-[node name="Credits" type="Button" parent="ButtonsBox"]
+[node name="Credits" type="Button" parent="ButtonsBox" unique_id=619597316]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Credits"
 
-[node name="Margin" type="Control" parent="ButtonsBox"]
+[node name="Margin" type="Control" parent="ButtonsBox" unique_id=817686745]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
-[node name="Quit" type="Button" parent="ButtonsBox"]
+[node name="Quit" type="Button" parent="ButtonsBox" unique_id=1771222409]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
