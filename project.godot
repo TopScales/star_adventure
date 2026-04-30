@@ -8,6 +8,11 @@
 
 config_version=5
 
+[addons]
+
+true_data/data_script_path="uid://e2lcqgrhw6uq"
+true_data/collections_resource_path="uid://boj68of2yo3vf"
+
 [animation]
 
 compatibility/default_parent_skeleton_in_mesh_instance_3d=true
@@ -25,7 +30,7 @@ config/icon="res://assets/icons/system/icon.svg"
 Err="*uid://q3kshlvkh7cb"
 Benchmark="*uid://10n5kfm55fea"
 Game="*res://scenes/game/game.tscn"
-Data="*uid://bt380fpgt5psr"
+Data="*uid://e2lcqgrhw6uq"
 
 [debug]
 

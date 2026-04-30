@@ -1,7 +1,4 @@
 ##
-## Brief description.
-##
-## Long description.
 ##
 class_name Mineral
 extends GameResource

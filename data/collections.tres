@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CollectionArray" format=3 uid="uid://boj68of2yo3vf"]
+
+[ext_resource type="Script" uid="uid://2xj5hgo8deca" path="res://addons/true_data/classes/collection_array.gd" id="1_d6cn6"]
+[ext_resource type="Script" uid="uid://cv2yenknl3at5" path="res://scripts/game_resources/mineral.gd" id="1_f0gbd"]
+[ext_resource type="Script" uid="uid://bhpbo5qj2vgqi" path="res://addons/true_data/views/collection.gd" id="2_8thgl"]
+
+[sub_resource type="Resource" id="Resource_87y3n"]
+resource_name = "Minerals"
+script = ExtResource("2_8thgl")
+path = "res://data/minerals/"
+collection_script = ExtResource("1_f0gbd")
+entries = 5
+
+[resource]
+script = ExtResource("1_d6cn6")
+arr = Array[Resource]([SubResource("Resource_87y3n")])
