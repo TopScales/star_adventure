@@ -1,10 +1,10 @@
 # Star Adventure
 
-[![Godot 4.5](https://img.shields.io/badge/Godot-4.5-blue?logo=godotengine)](https://godotengine.org/)
+[![Godot 4.6](https://img.shields.io/badge/Godot-4.6-blue?logo=godotengine)](https://godotengine.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TopScales/star_adventure/static_checks.yml)](https://github.com/TopScales/star_adventure/actions)
 
-**Star Adventure** is a fast-paced mobile *shoot ’em up* inspired by Space Invaders, designed for short, intense play sessions. Players pilot a spacecraft through escalating waves of enemies and environmental hazards, relying on positioning, momentum, and spatial awareness rather than raw firepower or complex upgrades.
+**Star Adventure** is a fast-paced mobile *shoot ’em up* inspired by Space Invaders, designed for short, intense play sessions. Players pilot a spacecraft through escalating waves of enemies and environmental hazards, relying on positioning, momentum, and spatial awareness that combined with custom ship designs provide a game experience that can fit different play styles.
 
 <p align="center">
   <img src="assets/logo/logo.png" />

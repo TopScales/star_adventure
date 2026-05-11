@@ -16,6 +16,5 @@ height = 0.2
 
 [node name="Player" parent="." unique_id=2145561906 instance=ExtResource("1_h3e3j")]
 position = Vector2(524, 1713)
-maximum_thrust = 800.0
 shape_factor_x = 0.02
 shape_factor_y = 0.02

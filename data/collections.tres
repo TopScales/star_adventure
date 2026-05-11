@@ -9,7 +9,6 @@ resource_name = "Minerals"
 script = ExtResource("2_8thgl")
 path = "res://data/minerals/"
 collection_script = ExtResource("1_f0gbd")
-entries = 5
 
 [resource]
 script = ExtResource("1_d6cn6")

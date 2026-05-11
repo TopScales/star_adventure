@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://ww1dobkce5hd"]
+
+[ext_resource type="Script" uid="uid://cf7hjyuxpfjeb" path="res://scenes/ship_designer/ship_view.gd" id="1_37veh"]
+[ext_resource type="PackedScene" uid="uid://bl408egjlbwcb" path="res://scenes/ship/ship.tscn" id="2_3mfc3"]
+[ext_resource type="StyleBox" uid="uid://h2rhytbyuyi6" path="res://assets/gui/style_boxes/stat_label_box.tres" id="3_3mfc3"]
+[ext_resource type="StyleBox" uid="uid://dhw0uf1asuvc" path="res://assets/gui/style_boxes/panel_box.tres" id="3_dv72j"]
+[ext_resource type="StyleBox" uid="uid://b5s6buq4b1cdu" path="res://assets/gui/style_boxes/stat_value_box.tres" id="4_t8x2v"]
+
+[node name="ShipDesigner" type="Control" unique_id=1520530102]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1693449124]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=959821771]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShipView" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=353032146]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_37veh")
+
+[node name="Ship" parent="VBoxContainer/HBoxContainer/ShipView" unique_id=1642237880 instance=ExtResource("2_3mfc3")]
+position = Vector2(386, 960)
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/HBoxContainer" unique_id=846164075]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_dv72j")
+
+[node name="StatsContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Panel" unique_id=635207300]
+layout_mode = 2
+
+[node name="MassStatBox" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Panel/StatsContainer" unique_id=910093474]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="StatLabel" type="Label" parent="VBoxContainer/HBoxContainer/Panel/StatsContainer/MassStatBox" unique_id=826210277]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("3_3mfc3")
+text = "Mass"
+
+[node name="StatValue" type="Label" parent="VBoxContainer/HBoxContainer/Panel/StatsContainer/MassStatBox" unique_id=582473565]
+custom_minimum_size = Vector2(162, 0)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_t8x2v")
+text = "10000.0"
+horizontal_alignment = 2
+
+[node name="MassStatBox2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Panel/StatsContainer" unique_id=1249692828]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="StatLabel" type="Label" parent="VBoxContainer/HBoxContainer/Panel/StatsContainer/MassStatBox2" unique_id=841676475]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("3_3mfc3")
+text = "Mass"
+
+[node name="StatValue" type="Label" parent="VBoxContainer/HBoxContainer/Panel/StatsContainer/MassStatBox2" unique_id=1210803973]
+custom_minimum_size = Vector2(162, 0)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_t8x2v")
+text = "10000.0"
+horizontal_alignment = 2

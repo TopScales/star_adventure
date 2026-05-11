@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://d1yy4wjdd7ggu" path="res://scenes/actors/body/body.tscn" id="1_0gtnv"]
 [ext_resource type="Script" uid="uid://bk1uqisii8c3f" path="res://scenes/ship/ship.gd" id="2_u5c2e"]
 [ext_resource type="Script" uid="uid://cihek8klibm6r" path="res://scenes/ship/components/ship_part_hull.gd" id="3_wxx60"]
-[ext_resource type="Texture2D" uid="uid://yjdeu5onnisj" path="res://assets/textures/ship/ship.svg" id="5_c54or"]
 [ext_resource type="Script" uid="uid://dan278kbpj25i" path="res://scenes/ship/ship_driver.gd" id="5_dh1m8"]
 [ext_resource type="Script" uid="uid://bh8bk6l65lp5u" path="res://scenes/ship/components/ship_intelligence.gd" id="6_7nsyl"]
 
@@ -25,7 +24,7 @@ metadata/_custom_type_script = "uid://cihek8klibm6r"
 script = ExtResource("5_dh1m8")
 
 [node name="HullSprite" type="Sprite2D" parent="Visuals" index="0" unique_id=520789377]
-texture = ExtResource("5_c54or")
+hframes = 5
 metadata/owner_components = Array[StringName]([&"Hull"])
 
 [connection signal="notify" from="Entity" to="Entity/Intelligence" method="_on_entity_notify"]

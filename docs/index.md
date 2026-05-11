@@ -5,6 +5,7 @@ Keeping up-to-date documentation is critically important in video game developme
 Having clear and accessible documentation from the beginning of the project is crucial to have a shared understanding of the goals and expectation of the game. This will allow for new team members to get on-board faster and to better understand the project's vision.
 
 Storing the documentation within the same repository as the game project provides several advantages:
+
 - Version Control Alignment: Documentation evolves in direct sync with code changes, ensuring consistency across revisions.
 - Reduced Context Switching: Contributors can access game assets, scripts, and documentation from a unified location.
 - Simplified Collaboration: Pull requests, issue tracking, and reviews can include updates to both code and documentation.

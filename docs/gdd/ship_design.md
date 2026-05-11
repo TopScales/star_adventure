@@ -5,9 +5,9 @@
 The base parts of a ship are:
 - Hull
 - Propulsion Framework
-- Weapon Frameworks
+- Weapons Framework
 
-The propulsion and weapon decks can be combined in a single module. The combination of different ship parts define the ship configuration. Each part has the following properties:
+The propulsion and weapons decks can be combined in a single module. The combination of different ship parts define the ship configuration. Each part has the following properties:
 - Material
 - Deck slots
 - Mass

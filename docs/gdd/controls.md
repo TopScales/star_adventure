@@ -5,6 +5,6 @@
 - The ship will always remain in the lower part of the screen. Going off-screen (even partially) is not allowed.
 - For web and PC versions conventional <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> keys are used.
 - For mobile a virtual joystick is used.
-- The game should be playable with one hand.
+- The game is played mainly with one hand, and the other being used less frequently to activate some functionalities.
 - No other controls are needed since the ship will shoot automatically.
-- Special powers will require buttons, but the screen cluttering should be reduced to the minimum.
+- Special powers/abilities require buttons in the UI, but the screen cluttering should be reduced to the minimum.

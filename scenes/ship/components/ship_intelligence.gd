@@ -27,6 +27,10 @@ var _dirty: bool = false
 # =============================================================
 # ========= Public Functions ==================================
 
+func _ready() -> void:
+	if not Engine.is_editor_hint():
+		__update_force()
+
 # =============================================================
 # ========= Callbacks =========================================
 
@@ -43,7 +47,7 @@ func __update_force() -> void:
 
 
 func __update_deferred() -> void:
-	if not Engine.is_editor_hint() and not _dirty:
+	if is_inside_tree() and not Engine.is_editor_hint() and not _dirty:
 		__update_force.call_deferred()
 		_dirty = true
 
