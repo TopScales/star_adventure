@@ -22,7 +22,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Star Adventure"
 config/version="0.1.1"
 run/main_scene="uid://cckt7jhjc3pfw"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://assets/icons/system/icon.svg"
 
 [autoload]

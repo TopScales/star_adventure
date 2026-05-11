@@ -8,7 +8,10 @@
             "type": "shell",
             "command": "scons",
             "args": [
-                "-j24"
+                "-j24",
+                "d3d12=yes",
+                "angle=no",
+                "accesskit=no"
             ],
             "group": "build",
             "presentation": {
@@ -26,6 +29,9 @@
             "command": "scons",
             "args": [
                 "-j24",
+                "d3d12=yes",
+                "angle=no",
+                "accesskit=no",
                 // enable for debugging with breakpoints
                 "dev_build=yes"
             ],
