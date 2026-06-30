@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d1yy4wjdd7ggu" path="res://scenes/actors/body/body.tscn" id="1_0gtnv"]
 [ext_resource type="Script" uid="uid://bk1uqisii8c3f" path="res://scenes/ship/ship.gd" id="2_u5c2e"]
-[ext_resource type="Script" uid="uid://cihek8klibm6r" path="res://scenes/ship/components/ship_part_hull.gd" id="3_wxx60"]
+[ext_resource type="Script" uid="uid://cihek8klibm6r" path="res://scenes/ship/components/ship_hull.gd" id="4_c54or"]
 [ext_resource type="Script" uid="uid://dan278kbpj25i" path="res://scenes/ship/ship_driver.gd" id="5_dh1m8"]
 [ext_resource type="Script" uid="uid://bh8bk6l65lp5u" path="res://scenes/ship/components/ship_intelligence.gd" id="6_7nsyl"]
 
@@ -16,15 +16,14 @@ shape_factor_y = 0.05
 script = ExtResource("6_7nsyl")
 metadata/_custom_type_script = "uid://bh8bk6l65lp5u"
 
-[node name="Hull" type="Node" parent="Entity" index="1" unique_id=410623647]
-script = ExtResource("3_wxx60")
+[node name="Hull" type="Node" parent="Entity" index="1" unique_id=526414865]
+script = ExtResource("4_c54or")
 metadata/_custom_type_script = "uid://cihek8klibm6r"
 
 [node name="Driver" parent="." index="1"]
 script = ExtResource("5_dh1m8")
 
-[node name="HullSprite" type="Sprite2D" parent="Visuals" index="0" unique_id=520789377]
-hframes = 5
+[node name="HullSprite" type="Sprite2D" parent="Visuals" index="0" unique_id=1455138841]
 metadata/owner_components = Array[StringName]([&"Hull"])
 
 [connection signal="notify" from="Entity" to="Entity/Intelligence" method="_on_entity_notify"]

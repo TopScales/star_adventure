@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Mineral" format=3 uid="uid://8um8wq2vp4i1"]
+
+[ext_resource type="Script" uid="uid://cv2yenknl3at5" path="res://scripts/game_resources/mineral.gd" id="1_qym0x"]
+
+[resource]
+script = ExtResource("1_qym0x")
+color = Color(0.734375, 0.08605957, 0.08605957, 1)

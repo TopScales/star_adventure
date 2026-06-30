@@ -11,6 +11,7 @@ var standalone_scene: bool = true
 
 var _loading_path: String = ""
 var _initial_data: Dictionary[StringName, Variant] = {}
+var _loading_scene: bool = false
 
 @onready var settings: Settings = $Settings
 @onready var debug: Debug = null
@@ -22,8 +23,13 @@ var _initial_data: Dictionary[StringName, Variant] = {}
 func change_main_scene(
 	path: String, use_loading_screen: bool = false, initial_data: Dictionary[StringName, Variant] = {}
 ) -> void:
+	if Err.fail(_loading_scene, "Already loading a scene."):
+		return
+
 	if Err.fail(_loading_path.is_empty(), "Can't change main scene while loading another scene.", "Game"):
 		return
+
+	_loading_scene = true
 
 	if use_loading_screen:
 		if Err.success_err(get_tree().change_scene_to_file(LOADING_SCREEN_PATH), "Can't open loading screen.", "Game"):
@@ -36,6 +42,7 @@ func change_main_scene(
 	elif Err.success_err(get_tree().change_scene_to_file(path), "Can't open main scene.", "Game"):
 		await get_tree().scene_changed
 		__initialize_scene(initial_data)
+		_loading_scene = false
 
 
 # =============================================================
@@ -77,6 +84,7 @@ func _process(_delta: float) -> void:
 				__initialize_scene(_initial_data)
 			_loading_path = ""
 			_initial_data.clear()
+			_loading_scene = false
 
 
 # =============================================================

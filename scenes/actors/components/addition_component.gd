@@ -160,6 +160,10 @@ func _get(property: StringName) -> Variant:
 
 func _get_property_list() -> Array[Dictionary]:
 	var props: Array[Dictionary]
+
+	if _status == Status.NOT_READY:
+		return props
+
 	var usage: int = PROPERTY_USAGE_EDITOR
 	_props_map.clear()
 
@@ -294,6 +298,8 @@ func __add_addition(addition_name: String) -> void:
 			addition_info[ADDITION_NODE] = addition
 			set(addition_info[ADDITION_PROP], addition)
 			__add(addition, addition_parent)
+
+		notify_property_list_changed()
 
 
 # =============================================================

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ShipFrameworkParams" format=3 uid="uid://da4kvc4drhuf7"]
+
+[ext_resource type="Script" uid="uid://cv5ph5qdqocsu" path="res://scenes/ship/components/data/ship_framework_params.gd" id="1_c7h4l"]
+
+[resource]
+script = ExtResource("1_c7h4l")
+texture_frame_size = Vector2i(14, 10)

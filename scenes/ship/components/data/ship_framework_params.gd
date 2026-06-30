@@ -1,28 +1,17 @@
 ##
 ##
-@tool
-class_name ShipPartHull
-extends AdditionComponent
+class_name ShipFrameworkParams
+extends Resource
 
-var _sprite: Sprite2D
+@export_dir var texture_directory: String
+@export var texture_name_regex: String
+@export var texture_frame_size: Vector2i = Vector2i(10, 10)
 
 # =============================================================
 # ========= Public Functions ==================================
 
 # =============================================================
-# ========= Callbacks =========================================
-
-
-func _init() -> void:
-	_additions = {
-		&"HullSprite":
-		{
-			AdditionComponent.ADDITION_NODE: _sprite,
-			AdditionComponent.ADDITION_PARENT: Body.VISUALS_PATH,
-			AdditionComponent.ADDITION_CLASS: &"Sprite2D",
-			AdditionComponent.ADDITION_PROP: &"_sprite"
-		}
-	}
+# ========= Built-in Functions ================================
 
 # =============================================================
 # ========= Virtual Methods ===================================
